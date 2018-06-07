@@ -1,0 +1,65 @@
+*** Settings ***
+Library           Selenium2Library
+Resource          ../Keywords/Login_page.txt
+Resource          ../Interfaces/Login/Login.txt
+Resource          ../Interfaces/Home/Home Page.txt
+Resource          ../Interfaces/Home/Top Navigation Menu.txt
+
+*** Test Cases ***
+TC01 - Invalid Username
+    Open Portal    146
+    Input Text    ${txt_username_Login}    Abcd
+    Input Text    ${txt_password_Login}    Linkit1*
+    Click Button    ${btn_submit_Login}
+    Element Should Contain    //*[@id="divLogOn"]/div/p[1]    Your username and password do not match our records.
+    Close Browser
+
+TC06 - Login Successful
+    Open Portal    146
+    Input Text    ${txt_username_Login Page}    dcragg
+    Input Text    ${txt_password_Login Page}    Linkit1*
+    Click Button    ${btn_submit_Login Page}
+    Wait Until Element Is Enabled    ${btn_SignOut_Home Page}
+    Close Browser
+
+TC02 - Invalid Password
+    Open Portal    146
+    Input Text    ${txt_username_Login Page}    dcragg
+    Input Text    ${txt_password_Login Page}    Linkit1
+    Click Button    ${btn_submit_Login Page}
+    Element Should Contain    //*[@id="divLogOn"]/div/p[1]    Your username and password do not match our records.
+    Close Browser
+
+TC03 - Invalid Username & Password
+    Open Portal    146
+    Input Text    ${txt_username_Login Page}    Abcd
+    Input Text    ${txt_password_Login Page}    Linkit1
+    Click Button    ${btn_submit_Login Page}
+    Element Should Contain    //*[@id="divLogOn"]/div/p[1]    Your username and password do not match our records.
+    Close Browser
+
+TC04 - Empty Username
+    Open Portal    146
+    Input Text    ${txt_username_Login Page}    ${empty}
+    Input Text    ${txt_password_Login Page}    Linkit1*
+    Click Button    ${btn_submit_Login Page}
+    Element Should Contain    //*[@id="divLogOn"]/div/p[1]    Please enter your user name
+    Close Browser
+
+TC05 - Empty Password
+    Open Portal    146
+    Input Text    ${txt_username_Login Page}    dcragg
+    Input Text    ${txt_password_Login Page}    ${empty}
+    Click Button    ${btn_submit_Login Page}
+    Element Should Contain    //*[@id="divLogOn"]/div/p[1]    Please enter your password
+    Close Browser
+
+TC07 - Logout Successful
+    Open Portal    146
+    Input Text    ${txt_username_Login Page}    dcragg
+    Input Text    ${txt_password_Login Page}    Linkit1*
+    Click Button    ${btn_submit_Login Page}
+    Wait Until Element Is Enabled    ${btn_SignOut_Home Page}
+    Click Element    ${btn_SignOut_Home Page}
+    Page Should Contain    LinkIt! Login
+    Close Browser

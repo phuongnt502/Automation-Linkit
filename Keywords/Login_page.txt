@@ -1,0 +1,17 @@
+*** Settings ***
+Library           Selenium2Library
+Resource          ../Interfaces/Login/Login.txt
+
+*** Keywords ***
+Open Portal
+    [Arguments]    ${environment}
+    Run Keyword If    ${environment} == 146    Open Browser    http://demo.linkit1.poetadigital.com    Chrome
+    Run Keyword If    ${environment} == 117    Open Browser    https:/demo.linkitdev.com    Chrome
+    Run Keyword If    ${environment} == "prod"    Open Browser    https:/demo.linkit.com    Chrome
+
+Login As Valid User
+    Open Portal    146
+    Input Text    ${txt_username_Login Page}    dcragg
+    Input Text    ${txt_password_Login Page}    Linkit1*
+    Click Element    ${btn_submit_Login Page}
+    Wait Until Element Is Enabled    //*[@id="status-infos"]/li[3]/a

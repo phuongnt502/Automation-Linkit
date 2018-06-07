@@ -1,0 +1,2 @@
+*** Variables ***
+${ico_TestDesign_Top Area Icons}    //*[@id="main-nav"]/ul/li[3]/a

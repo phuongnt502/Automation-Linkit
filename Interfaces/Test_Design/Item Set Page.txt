@@ -1,0 +1,3 @@
+*** Variables ***
+${ico_CreateNewItem_Create Item Page}    //*[@id="imgCreateNewItem"]
+${ico_ImportItem_Create Item Page}    //*[@id="divQtiItemList"]/div[1]/div[1]/div[1]/div/img[2]

@@ -1,0 +1,4 @@
+*** Variables ***
+${txt_username_Login Page}    //*[@id="login"]
+${txt_password_Login Page}    //*[@id="pass"]
+${btn_submit_Login Page}    //*[@id="btnSubmit"]

@@ -1,0 +1,23 @@
+*** Settings ***
+Library           Selenium2Library
+Resource          Login_page.txt
+Library           String
+
+*** Keywords ***
+Generate Item Bank Name - Manage Item Bank
+    ${randomtext}=    Generate Random String    4    [LETTERS]
+    ${randomnumber}=    Generate Random String    4    [NUMBERS]
+    ${itembankname}=    Set Variable    ItemBank-${randomtext}${randomnumber}
+    Set Global Variable    ${itembankname}
+
+Generate Item Set Name - Manage Item Bank
+    ${randomtext2}=    Generate Random String    4    [LETTERS]
+    ${randomnumber2}=    Generate Random String    4    [NUMBERS]
+    ${itemsetname}=    Set Variable    ItemSet-${randomtext2}${randomnumber2}
+    Set Global Variable    ${itemsetname}
+
+Generate VirtualTest Name - Manage Item Name
+    ${randomtext3}=    Generate Random String    4    [LETTERS]
+    ${randomnumber3}=    Generate Random String    4    [NUMBERS]
+    ${virtualtestname}=    Set Variable    VirtualTest-${randomtext3}${randomnumber3}
+    Set Global Variable    ${virtualtestname}

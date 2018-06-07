@@ -1,0 +1,2 @@
+*** Variables ***
+${ico_TestDesign_Top Navigation Menu}    //*[@id="main-nav"]/ul/li[3]/a

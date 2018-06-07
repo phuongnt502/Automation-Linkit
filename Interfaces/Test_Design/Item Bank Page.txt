@@ -1,0 +1,28 @@
+*** Settings ***
+Library           Selenium2Library
+Resource          Item Bank Page.txt
+Resource          Top_Area_Icons.txt
+
+*** Variables ***
+${btn_AddNewItemBank_Item Bank Page}    //*[@id="divOnTop"]/h1/a
+${tab_Manage Item Banks}    //*[@id="assesmenItemRewrite"]/a
+${tab_Manage Tests}    //*[@id="manageTests"]/a
+${txt_SearchItemBank_Item Bank Page}    //*[@id="dataTableItemBank_filter"]/label/input
+${pop_ItemBankName_Item Bank Page}    //*[@id="PopupCreateItemBank"]/section/div/div/h1
+${txt_ItemBankName_Item Bank Page}    //*[@id="inputItemBankName"]
+${btn_CreateItemBank_Item Bank Page}    //*[@id="btnCreateItemBank"]
+${btn_CancelCreateItemBank_Item Bank Page}    //*[@id="btnCancelChangeBank"]
+${jvs_EditItemBankClick_Item Bank Page}    $('#dataTableItemBank').find('a[title="Item Bank Properties"]').trigger('click')
+${jvs_DeleteItemBankClick_Item Bank Page}    $('#dataTableItemBank').find('a[title="Delete Item Bank"]').trigger('click')
+${btn_AddNewItemSet_Item Bank Page}    //*[@id="divOnTopSet"]/h1/a
+${txt_SearchItemSet_Item Bank Page}    //*[@id="dataTableSet_filter"]/label/input
+${pop_ItemSetName_Item Bank Page}    //*[@id="PopupCreateItemBank"]/section/div/div/h1
+${txt_ItemSetName_Item Bank Page}    //*[@id="inputItemSetName"]
+${btn_CreateItemSet_Item Bank Page}    //*[@id="btnCreateItemSet"]
+${btn_CancelCreateItemSet_Item Bank Page}    //*[@id="btnCancelCreateSet"]
+${jvs_OpenItemSetClick_Item Bank Page}    $('#dataTableSet').find('a[title="Open Item Set"]').trigger('click')
+${tbl_ListItemBankReturn_Item Bank Page}    //*[@id="dataTableItemBank"]/tbody/tr/td[2]/div
+${tbl_ListItemSetReturn_Item Bank Page}    //*[@id="dataTableSet"]/tbody/tr/td[2]/div
+${jvs_ItemSetPropertiesClick_Item Bank Page}    $('#dataTableSet').find('a[title="Item Set Properties"]').trigger('click')
+${jvs_DeleteItemSetClick_Item Bank Page}    $('#dataTableSet').find('a[title="Delete Item Set"]').trigger('click')
+${jvs_MoveCopyItemSetClick_Item Bank Page}    $('#dataTableSet').find('a[title="Move/Copy Item Set"]').trigger('click')

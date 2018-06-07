@@ -1,0 +1,12 @@
+*** Variables ***
+${drp_ItemType_Create Item Page}    //*[@id="changeItemType"]
+${drp_MultipleChoicesItem_Create Item Page}    //*[@id="changeItemType"]/option[1]
+${ifr_QuestionContent_Create Item Page}    //*[@id="cke_1_contents"]/iframe
+${ifr_MC-AnswerChoiceArea_Create Item Page}    //*[@id="RESPONSE_1" and class="multipleChoice"]
+${btn_MC-EditAnswerChoice_Create Item Page}    //*[@id="single-click"]
+${ifr_QuestContentEdit_Create Item Page}    //*[@id="cke_1_contents"]/iframe/html/body/span
+${pop_EditAnswerChoices_Create Item Page}    /html/body/div[11]/table
+${rad_MC-MultiSelectOption_Create Item Page}    //*[@id="select_multi"]
+${rad_MC-SingleSelectOption_Create Item Page}    //*[@id="select_single"]
+${cbx_MC-PointsPossible_Create Item Page}    //*[@id="cke_78_uiElement"]/div[2]/div[1]/span/input[1]
+${btn_SaveItem_Create Item Page}    //*[@id="btnCreateItem"]

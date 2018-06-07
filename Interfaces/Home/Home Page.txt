@@ -1,0 +1,2 @@
+*** Variables ***
+${btn_SignOut_Home Page}    //*[@id="status-infos"]/li[3]/a

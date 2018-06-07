@@ -1,0 +1,62 @@
+*** Settings ***
+Library           Selenium2Library
+Resource          ../Keywords/Login_page.txt
+Resource          ../Keywords/Test Design - Item Bank Page.txt
+Resource          ../Variables/Global_Variables.txt
+Resource          ../Interfaces/Test_Design/Item Bank Page.txt
+Resource          ../Interfaces/Test_Design/Item Set Page.txt
+Resource          ../Interfaces/Test_Design/Create Item Page.txt
+Resource          ../Interfaces/Home/Home Page.txt
+Resource          ../Interfaces/Home/Top Navigation Menu.txt
+Resource          ../Interfaces/Top_Area_Icons/Top_Area_Icons.txt
+
+*** Test Cases ***
+TC01 - Create New Item Bank
+    Login As Valid User
+    Wait Until Element Is Enabled    ${ico_TestDesign_Top Navigation Menu}
+    Click Element    ${ico_TestDesign_Top Navigation Menu}
+    Wait Until Element Is Visible    ${tab_Manage Item Banks}
+    Click Element    ${tab_Manage Item Banks}
+    Wait Until Element Is Enabled    ${btn_AddNewItemBank_Item Bank Page}
+    Click Element    ${btn_AddNewItemBank_Item Bank Page}
+    Wait Until Element Is Visible    ${pop_ItemBankName_Item Bank Page}
+    Generate Item Bank Name - Manage Item Bank
+    Input Text    ${txt_ItemBankName_Item Bank Page}    ${itembankname}
+    Click Element    ${btn_CreateItemBank_Item Bank Page}
+    Wait Until Element Is Not Visible    ${pop_ItemBankName_Item Bank Page}    10s
+    Input Text    ${txt_SearchItemBank_Item Bank Page}    ${itembankname}
+    Sleep    5s
+    Element Should Contain    ${tbl_ListItemBankReturn_Item Bank Page}    ${itembankname}
+
+TC02 - Create Item Set
+    Click Element    ${tbl_ListItemBankReturn_Item Bank Page}
+    Wait Until Element Is Enabled    ${btn_AddNewItemSet_Item Bank Page}
+    Click Element    ${btn_AddNewItemSet_Item Bank Page}
+    Wait Until Element Is Visible    ${pop_ItemSetName_Item Bank Page}
+    Generate Item Set Name - Manage Item Bank
+    Input Text    ${txt_ItemSetName_Item Bank Page}    ${itemsetname}
+    Click Element    ${btn_CreateItemSet_Item Bank Page}
+    Wait Until Element Is Not Visible    ${pop_ItemSetName_Item Bank Page}    10s
+    Input Text    ${txt_SearchItemSet_Item Bank Page}    ${itemsetname}
+    Sleep    5s
+    Element Should Contain    ${tbl_ListItemSetReturn_Item Bank Page}    ${itemsetname}
+
+TC03 - Create Multiple Choices Single Select Item
+    Open Browser    http://demo.linkit1.poetadigital.com/QTIItem?qtiItemGroupID=22674&itemSetName=ItemSet-JAGY4297    Chrome
+    Input Text    ${txt_username_Login Page}    dcragg
+    Input Text    ${txt_password_Login Page}    Linkit1*
+    Click Element    ${btn_submit_Login Page}
+    Wait Until Element Is Enabled    ${ico_CreateNewItem_Create Item Page}
+    Click Element    ${ico_CreateNewItem_Create Item Page}
+    Sleep    15s
+    Wait Until Element Is Enabled    ${btn_SaveItem_Create Item Page}    60s
+    Element Should Contain    ${btn_MC-EditAnswerChoice_Create Item Page}    Click here to edit answer choices
+    Select Frame    ${ifr_QuestionContent_Create Item Page}
+    Set Focus To Element    ${ifr_QuestContentEdit_Create Item Page}
+    Input Text    ${ifr_QuestContentEdit_Create Item Page}    1 + 1 = ?
+    Click Element    ${btn_MC-EditAnswerChoice_Create Item Page}
+    Wait Until Element Is Visible    ${pop_EditAnswerChoices_Create Item Page}    10s
+    Set Focus To Element    ${cbx_MC-PointsPossible_Create Item Page}
+    Input Text    ${cbx_MC-PointsPossible_Create Item Page}    2
+
+TC04 - Create Multiple Choices Multi-Select Item

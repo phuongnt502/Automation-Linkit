@@ -1,0 +1,4 @@
+*** Variables ***
+${itembankname}    ${empty}
+${itemsetname}    ${empty}
+${virtualtestname}    ${empty}
