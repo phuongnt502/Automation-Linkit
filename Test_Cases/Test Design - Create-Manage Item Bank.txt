@@ -48,14 +48,13 @@ TC03 - Create Multiple Choices Single Select Item
     Click Element    ${btn_submit_Login Page}
     Wait Until Element Is Enabled    ${ico_CreateNewItem_Create Item Page}
     Click Element    ${ico_CreateNewItem_Create Item Page}
-    Sleep    15s
-    Wait Until Element Is Enabled    ${btn_SaveItem_Create Item Page}    60s
-    Element Should Contain    ${btn_MC-EditAnswerChoice_Create Item Page}    Click here to edit answer choices
+    Sleep    30s
+    Unselect Frame
     Select Frame    ${ifr_QuestionContent_Create Item Page}
-    Set Focus To Element    ${ifr_QuestContentEdit_Create Item Page}
-    Input Text    ${ifr_QuestContentEdit_Create Item Page}    1 + 1 = ?
-    Click Element    ${btn_MC-EditAnswerChoice_Create Item Page}
+    Input Text    ${ifr_QuestionContentEdit_Create Item Page}    1 + 1 = ?
+    Execute Javascript    ${jvs_MC-EditAnswerChoice_Create Item Page}
     Wait Until Element Is Visible    ${pop_EditAnswerChoices_Create Item Page}    10s
+    Unselect Frame
     Set Focus To Element    ${cbx_MC-PointsPossible_Create Item Page}
     Input Text    ${cbx_MC-PointsPossible_Create Item Page}    2
 

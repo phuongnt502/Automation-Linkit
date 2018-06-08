@@ -1,7 +1,6 @@
 *** Settings ***
 Library           Selenium2Library
 Resource          Item Bank Page.txt
-Resource          Top_Area_Icons.txt
 
 *** Variables ***
 ${btn_AddNewItemBank_Item Bank Page}    //*[@id="divOnTop"]/h1/a
