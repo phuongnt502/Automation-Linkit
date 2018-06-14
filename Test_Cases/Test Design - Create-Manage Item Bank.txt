@@ -56,8 +56,8 @@ TC03 - Create Multiple Choices Single Select Item
     Navigate To Item Page
     Sleep    30s
     Wait Until Element Is Enabled    ${btn_SaveItem_Create Item Page}    10s
-    Comment    Select Frame    ${ifr_QuestionContent_Create Item Page}
-    Comment    Input Text    ${ifr_QuestionContentEdit_Create Item Page}    1 + 1 = ?
+    Select Frame    ${ifr_QuestionContent_Create Item Page}
+    Press Key    ${ifr_QuestionContentEdit_Create Item Page}    1 + 1 = ?
     Comment    Click to edit Answer Choices
     Execute Javascript    ${jvs_MC-EditAnswerChoice_Create Item Page}
     Sleep    3s
@@ -121,10 +121,18 @@ TC04 - Create Multiple Choices Multi-Select Item
 
 TC05 - Create Multiple Choices Variables Item
     Navigate To Item Page
+    Sleep    30s
     Wait Until Element Is Enabled    ${btn_SaveItem_Create Item Page}    10s
     Click Element    ${drp_ItemType_Create Item Page}
-    Sleep    30s
-    Select From List By Index    1
-    Sleep    15s
+    Select From List By Value    ${drp_ItemType_Create Item Page}    ${MC-Variable}
+    Set Selenium Implicit Wait    15s
     Wait Until Element Is Enabled    ${btn_SaveItem_Create Item Page}
-    Execute Javascript
+    Select Frame    ${ifr_QuestionContent_Create Item Page}
+    Input Text    ${ifr_QuestionContentEdit_Create Item Page}    1 + 1 = ?
+    Sleep    3s
+    Comment    Click to edit Answer Choices
+    Execute Javascript    ${jvs_MC-EditAnswerChoice_Create Item Page}
+    Set Selenium Implicit Wait    5s
+    Comment    Enter PointsPossible
+    Generate PointsPossible - Create_Item_Page
+    Input Text    ${cbx_MC-PointsPossible_Create Item Page}    ${pointspossible}

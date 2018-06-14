@@ -3,3 +3,10 @@ ${MC-CorrectAnswer1 content}    Correct Answer 1
 ${MC-CorrectAnswer2 content}    Correct Answer 2
 ${MC-CorrectAnswer3 content}    Correct Answer 3
 ${MC-CorrectAnswer4 content}    Correct Answer 4
+${MC-Variable}    37
+${InlineChoice}    8
+${Fill-In-The-Blank}    9
+${ExtendedText}    10
+${DrawingResponse}    10d
+${Multi-Part}     21
+${Drag-and-Drop}    30
