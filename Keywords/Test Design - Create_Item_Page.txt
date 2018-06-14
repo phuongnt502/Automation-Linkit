@@ -1,0 +1,21 @@
+*** Settings ***
+Library           String
+Resource          ../Variables/Global_Variables.txt
+Resource          ../Variables/Login_Page.txt
+Resource          ../Variables/Create_Item_Page_Variables.txt
+Resource          ../Interfaces/Login/Login.txt
+Resource          ../Interfaces/Test_Design/Create_Item_Page.txt
+Resource          ../Interfaces/Test_Design/Item_Set_Page.txt
+
+*** Keywords ***
+Generate PointsPossible - Create_Item_Page
+    ${pointspossible}=    Generate Random String    1    [NUMBERS]
+    Set Global Variable    ${pointspossible}=
+
+Navigate To Item Page
+    Open Browser    http://demo.linkit1.poetadigital.com/QTIItem?qtiItemGroupID=22674&itemSetName=ItemSet-JAGY4297    Chrome
+    Input Text    ${txt_username_Login Page}    ${valid_username}
+    Input Text    ${txt_password_Login Page}    ${valid_password}
+    Click Element    ${btn_submit_Login Page}
+    Wait Until Element Is Enabled    ${ico_CreateNewItem_Create Item Page}
+    Click Element    ${ico_CreateNewItem_Create Item Page}

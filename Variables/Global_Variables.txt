@@ -2,3 +2,4 @@
 ${itembankname}    ${empty}
 ${itemsetname}    ${empty}
 ${virtualtestname}    ${empty}
+${pointspossible}    ${empty}

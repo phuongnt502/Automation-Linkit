@@ -9,51 +9,122 @@ Resource          ../Interfaces/Test_Design/Item_Bank_Page.txt
 Resource          ../Interfaces/Test_Design/Item_Set_Page.txt
 Resource          ../Interfaces/Home/Home_Page.txt
 Resource          ../Interfaces/Home/Top_Navigation_Menu.txt
+Resource          ../Variables/Login_Page.txt
+Resource          ../Variables/Create_Item_Page_Variables.txt
+Resource          ../Keywords/Test Design - Create_Item_Page.txt
 
 *** Test Cases ***
 TC01 - Create New Item Bank
     Login As Valid User
+    Comment    Navigate to Test Design Area and access Create/Manage Item Banks tab
     Wait Until Element Is Enabled    ${ico_TestDesign_Top Navigation Menu}
     Click Element    ${ico_TestDesign_Top Navigation Menu}
     Wait Until Element Is Visible    ${tab_Manage Item Banks}
     Click Element    ${tab_Manage Item Banks}
+    Comment    Create New Item Bank with random name starts with 'ItemBank-'
     Wait Until Element Is Enabled    ${btn_AddNewItemBank_Item Bank Page}
     Click Element    ${btn_AddNewItemBank_Item Bank Page}
     Wait Until Element Is Visible    ${pop_ItemBankName_Item Bank Page}
-    Generate Item Bank Name - Manage Item Bank
+    Generate Item Bank Name - Item Bank Page
     Input Text    ${txt_ItemBankName_Item Bank Page}    ${itembankname}
     Click Element    ${btn_CreateItemBank_Item Bank Page}
     Wait Until Element Is Not Visible    ${pop_ItemBankName_Item Bank Page}    10s
+    Comment    Filter new Item Bank has just created by entering name to Search field
     Input Text    ${txt_SearchItemBank_Item Bank Page}    ${itembankname}
     Sleep    5s
+    Comment    Verify new Item Bank is returned
     Element Should Contain    ${tbl_ListItemBankReturn_Item Bank Page}    ${itembankname}
 
 TC02 - Create Item Set
+    Comment    Click on the new Item Bank has just created
     Click Element    ${tbl_ListItemBankReturn_Item Bank Page}
     Wait Until Element Is Enabled    ${btn_AddNewItemSet_Item Bank Page}
+    Comment    Create new Item Set with random name starts with 'ItemSet-'
     Click Element    ${btn_AddNewItemSet_Item Bank Page}
     Wait Until Element Is Visible    ${pop_ItemSetName_Item Bank Page}
-    Generate Item Set Name - Manage Item Bank
+    Generate Item Set Name - Item Bank Page
     Input Text    ${txt_ItemSetName_Item Bank Page}    ${itemsetname}
     Click Element    ${btn_CreateItemSet_Item Bank Page}
     Wait Until Element Is Not Visible    ${pop_ItemSetName_Item Bank Page}    10s
+    Comment    Filter new Item Set has just created
     Input Text    ${txt_SearchItemSet_Item Bank Page}    ${itemsetname}
     Sleep    5s
+    Comment    Verify new Item Set is returned
     Element Should Contain    ${tbl_ListItemSetReturn_Item Bank Page}    ${itemsetname}
 
 TC03 - Create Multiple Choices Single Select Item
-    Open Browser    http://demo.linkit1.poetadigital.com/QTIItem?qtiItemGroupID=22674&itemSetName=ItemSet-JAGY4297    Chrome
-    Input Text    ${txt_username_Login Page}    dcragg
-    Input Text    ${txt_password_Login Page}    Linkit1*
-    Click Element    ${btn_submit_Login Page}
-    Wait Until Element Is Enabled    ${ico_CreateNewItem_Create Item Page}
-    Click Element    ${ico_CreateNewItem_Create Item Page}
+    Navigate To Item Page
     Sleep    30s
-    Select Frame    ${ifr_QuestionContent_Create Item Page}
-    Input Text    ${ifr_QuestionContentEdit_Create Item Page}    1 + 1 = ?
+    Wait Until Element Is Enabled    ${btn_SaveItem_Create Item Page}    10s
+    Comment    Select Frame    ${ifr_QuestionContent_Create Item Page}
+    Comment    Input Text    ${ifr_QuestionContentEdit_Create Item Page}    1 + 1 = ?
+    Comment    Click to edit Answer Choices
     Execute Javascript    ${jvs_MC-EditAnswerChoice_Create Item Page}
-    Wait Until Element Is Visible    ${pop_EditAnswerChoices_Create Item Page}    10s
-    Set Focus To Element    ${cbx_MC-PointsPossible_Create Item Page}
-    Input Text    ${cbx_MC-PointsPossible_Create Item Page}    2
+    Sleep    3s
+    Comment    Enter PointsPossible
+    Generate PointsPossible - Create_Item_Page
+    Input Text    ${cbx_MC-PointsPossible_Create Item Page}    ${pointspossible}
+    Comment    Enter Answer Choices content
+    Comment    Select Frame    ${txt_MC-CorrectAnswer1_Create Item Page}
+    Comment    Clear Element Text    ${txt_MC-CorrectAnswer1_Create Item Page}
+    Comment    Input Text    ${txt_MC-CorrectAnswer1_Create Item Page}    ${MC-CorrectAnswer1 content}
+    Comment    Select Frame    ${txt_MC-CorrectAnswer2_Create Item Page}
+    Comment    Clear Element Text    ${txt_MC-CorrectAnswer2_Create Item Page}
+    Comment    Input Text    ${txt_MC-CorrectAnswer2_Create Item Page}    ${MC-CorrectAnswer2 content}
+    Comment    Select Frame    ${txt_MC-CorrectAnswer3_Create Item Page}
+    Comment    Clear Element Text    ${txt_MC-CorrectAnswer3_Create Item Page}
+    Comment    Input Text    ${txt_MC-CorrectAnswer3_Create Item Page}    ${MC-CorrectAnswer3 content}
+    Comment    Select Frame    ${txt_MC-CorrectAnswer4_Create Item Page}
+    Comment    Clear Element Text    ${txt_MC-CorrectAnswer4_Create Item Page}
+    Comment    Input Text    ${txt_MC-CorrectAnswer4_Create Item Page}    ${MC-CorrectAnswer4 content}
+    Comment    Select correct answer and save changes
+    Select Checkbox    ${chx_MC-CorrectAnswer2_Create Item Page}
+    Click Element    ${btn_MC-SaveChanges_Create Item Page}
+    Wait Until Element Is Enabled    ${btn_SaveandClose Item_Create Item Page}
+    Click Element    ${btn_SaveandClose Item_Create Item Page}
+    Wait Until Element Is Enabled    ${ico_CreateNewItem_Create Item Page}    30s
+    Close Browser
 
 TC04 - Create Multiple Choices Multi-Select Item
+    Navigate To Item Page
+    Sleep    30s
+    Wait Until Element Is Enabled    ${btn_SaveItem_Create Item Page}    10s
+    Comment    Select Frame    ${ifr_QuestionContent_Create Item Page}
+    Comment    Input Text    ${ifr_QuestionContentEdit_Create Item Page}    1 + 1 = ?
+    Comment    Click to edit Answer Choices
+    Execute Javascript    ${jvs_MC-EditAnswerChoice_Create Item Page}
+    Sleep    3s
+    Comment    Enter PointsPossible
+    Generate PointsPossible - Create_Item_Page
+    Input Text    ${cbx_MC-PointsPossible_Create Item Page}    ${pointspossible}
+    Click Element    ${rad_MC-MultiSelectOption_Create Item Page}
+    Comment    Enter Answer Choices content
+    Comment    Select Frame    ${txt_MC-CorrectAnswer1_Create Item Page}
+    Comment    Clear Element Text    ${txt_MC-CorrectAnswer1_Create Item Page}
+    Comment    Input Text    ${txt_MC-CorrectAnswer1_Create Item Page}    ${MC-CorrectAnswer1 content}
+    Comment    Select Frame    ${txt_MC-CorrectAnswer2_Create Item Page}
+    Comment    Clear Element Text    ${txt_MC-CorrectAnswer2_Create Item Page}
+    Comment    Input Text    ${txt_MC-CorrectAnswer2_Create Item Page}    ${MC-CorrectAnswer2 content}
+    Comment    Select Frame    ${txt_MC-CorrectAnswer3_Create Item Page}
+    Comment    Clear Element Text    ${txt_MC-CorrectAnswer3_Create Item Page}
+    Comment    Input Text    ${txt_MC-CorrectAnswer3_Create Item Page}    ${MC-CorrectAnswer3 content}
+    Comment    Select Frame    ${txt_MC-CorrectAnswer4_Create Item Page}
+    Comment    Clear Element Text    ${txt_MC-CorrectAnswer4_Create Item Page}
+    Comment    Input Text    ${txt_MC-CorrectAnswer4_Create Item Page}    ${MC-CorrectAnswer4 content}
+    Comment    Select correct answer and save changes
+    Select Checkbox    ${chx_MC-CorrectAnswer2_Create Item Page}
+    Click Element    ${btn_MC-SaveChanges_Create Item Page}
+    Wait Until Element Is Enabled    ${btn_SaveandClose Item_Create Item Page}
+    Click Element    ${btn_SaveandClose Item_Create Item Page}
+    Wait Until Element Is Enabled    ${ico_CreateNewItem_Create Item Page}    30s
+    Close Browser
+
+TC05 - Create Multiple Choices Variables Item
+    Navigate To Item Page
+    Wait Until Element Is Enabled    ${btn_SaveItem_Create Item Page}    10s
+    Click Element    ${drp_ItemType_Create Item Page}
+    Sleep    30s
+    Select From List By Index    1
+    Sleep    15s
+    Wait Until Element Is Enabled    ${btn_SaveItem_Create Item Page}
+    Execute Javascript
