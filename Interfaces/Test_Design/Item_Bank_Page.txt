@@ -1,6 +1,6 @@
 *** Settings ***
 Library           Selenium2Library
-Resource          Item Bank Page.txt
+Resource          Item_Bank_Page.txt
 
 *** Variables ***
 ${btn_AddNewItemBank_Item Bank Page}    //*[@id="divOnTop"]/h1/a

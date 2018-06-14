@@ -2,64 +2,65 @@
 Library           Selenium2Library
 Resource          ../Keywords/Login_page.txt
 Resource          ../Interfaces/Login/Login.txt
-Resource          ../Interfaces/Home/Home Page.txt
-Resource          ../Interfaces/Home/Top Navigation Menu.txt
+Resource          ../Interfaces/Home/Home_Page.txt
+Resource          ../Interfaces/Home/Top_Navigation_Menu.txt
+Resource          ../Variables/Login_Page.txt
 
 *** Test Cases ***
 TC01 - Invalid Username
     Open Portal    146
-    Input Text    ${txt_username_Login}    Abcd
-    Input Text    ${txt_password_Login}    Linkit1*
-    Click Button    ${btn_submit_Login}
-    Element Should Contain    //*[@id="divLogOn"]/div/p[1]    Your username and password do not match our records.
+    Input Text    ${txt_username_Login Page}    ${invalid_username}
+    Input Text    ${txt_password_Login Page}    ${invalid_password}
+    Click Button    ${btn_submit_Login Page}
+    Element Should Contain    ${msg_ErrorDisplay_Login Page}    ${errormessage_invalidlogin}
     Close Browser
 
 TC06 - Login Successful
     Open Portal    146
-    Input Text    ${txt_username_Login Page}    dcragg
-    Input Text    ${txt_password_Login Page}    Linkit1*
+    Input Text    ${txt_username_Login Page}    ${valid_username}
+    Input Text    ${txt_password_Login Page}    ${valid_password}
     Click Button    ${btn_submit_Login Page}
     Wait Until Element Is Enabled    ${btn_SignOut_Home Page}
     Close Browser
 
 TC02 - Invalid Password
     Open Portal    146
-    Input Text    ${txt_username_Login Page}    dcragg
-    Input Text    ${txt_password_Login Page}    Linkit1
+    Input Text    ${txt_username_Login Page}    ${invalid_username}
+    Input Text    ${txt_password_Login Page}    ${invalid_password}
     Click Button    ${btn_submit_Login Page}
-    Element Should Contain    //*[@id="divLogOn"]/div/p[1]    Your username and password do not match our records.
+    Element Should Contain    ${msg_ErrorDisplay_Login Page}    ${errormessage_invalidlogin}
     Close Browser
 
 TC03 - Invalid Username & Password
     Open Portal    146
-    Input Text    ${txt_username_Login Page}    Abcd
-    Input Text    ${txt_password_Login Page}    Linkit1
+    Input Text    ${txt_username_Login Page}    ${invalid_username}
+    Input Text    ${txt_password_Login Page}    ${invalid_password}
     Click Button    ${btn_submit_Login Page}
-    Element Should Contain    //*[@id="divLogOn"]/div/p[1]    Your username and password do not match our records.
+    Element Should Contain    ${msg_ErrorDisplay_Login Page}    ${errormessage_invalidlogin}
     Close Browser
 
 TC04 - Empty Username
     Open Portal    146
-    Input Text    ${txt_username_Login Page}    ${empty}
-    Input Text    ${txt_password_Login Page}    Linkit1*
+    Input Text    ${txt_username_Login Page}    ${empty_username}
+    Input Text    ${txt_password_Login Page}    ${valid_password}
     Click Button    ${btn_submit_Login Page}
-    Element Should Contain    //*[@id="divLogOn"]/div/p[1]    Please enter your user name
+    Element Should Contain    ${msg_ErrorDisplay_Login Page}    ${errormessage_emptyusername}
     Close Browser
 
 TC05 - Empty Password
     Open Portal    146
-    Input Text    ${txt_username_Login Page}    dcragg
-    Input Text    ${txt_password_Login Page}    ${empty}
+    Input Text    ${txt_username_Login Page}    ${valid_username}
+    Input Text    ${txt_password_Login Page}    ${empty_password}
     Click Button    ${btn_submit_Login Page}
-    Element Should Contain    //*[@id="divLogOn"]/div/p[1]    Please enter your password
+    Element Should Contain    ${msg_ErrorDisplay_Login Page}    ${errormessage_emptypassword}
     Close Browser
 
 TC07 - Logout Successful
     Open Portal    146
-    Input Text    ${txt_username_Login Page}    dcragg
-    Input Text    ${txt_password_Login Page}    Linkit1*
+    Input Text    ${txt_username_Login Page}    ${valid_username}
+    Input Text    ${txt_password_Login Page}    ${valid_password}
     Click Button    ${btn_submit_Login Page}
     Wait Until Element Is Enabled    ${btn_SignOut_Home Page}
     Click Element    ${btn_SignOut_Home Page}
-    Page Should Contain    LinkIt! Login
+    Page Should Contain    ${lbl_PageLabel_Login Page}
     Close Browser

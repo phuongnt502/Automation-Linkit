@@ -4,7 +4,7 @@ ${drp_MultipleChoicesItem_Create Item Page}    //*[@id="changeItemType"]/option[
 ${ifr_QuestionContent_Create Item Page}    //iframe[@class="cke_wysiwyg_frame cke_reset"]
 ${ifr_MC-AnswerChoiceArea_Create Item Page}    //*[@id="RESPONSE_1" and class="multipleChoice"]
 ${jvs_MC-EditAnswerChoice_Create Item Page}    $($('#divQContent iframe').contents()).find('#single-click').trigger('click')
-${ifr_QuestionContentEdit_Create Item Page}    //iframe[@class="cke_wysiwyg_frame cke_reset"]/html/body/span
+${ifr_QuestionContentEdit_Create Item Page}    $($('#divQContent iframe').contents()).find('#cke_editable cke_editable_themed cke_contents_ltr cke_show_borders').trigger('select')
 ${pop_EditAnswerChoices_Create Item Page}    /html/body/div[11]/table
 ${rad_MC-MultiSelectOption_Create Item Page}    //*[@id="select_multi"]
 ${rad_MC-SingleSelectOption_Create Item Page}    //*[@id="select_single"]

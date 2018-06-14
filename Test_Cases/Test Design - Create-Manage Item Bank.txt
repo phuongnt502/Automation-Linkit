@@ -3,12 +3,12 @@ Library           Selenium2Library
 Resource          ../Keywords/Login_page.txt
 Resource          ../Keywords/Test Design - Item Bank Page.txt
 Resource          ../Variables/Global_Variables.txt
-Resource          ../Interfaces/Test_Design/Item Bank Page.txt
-Resource          ../Interfaces/Test_Design/Item Set Page.txt
-Resource          ../Interfaces/Test_Design/Create Item Page.txt
-Resource          ../Interfaces/Home/Home Page.txt
-Resource          ../Interfaces/Home/Top Navigation Menu.txt
 Resource          ../Interfaces/Top_Area_Icons/Top_Area_Icons.txt
+Resource          ../Interfaces/Test_Design/Create_Item_Page.txt
+Resource          ../Interfaces/Test_Design/Item_Bank_Page.txt
+Resource          ../Interfaces/Test_Design/Item_Set_Page.txt
+Resource          ../Interfaces/Home/Home_Page.txt
+Resource          ../Interfaces/Home/Top_Navigation_Menu.txt
 
 *** Test Cases ***
 TC01 - Create New Item Bank
@@ -49,12 +49,10 @@ TC03 - Create Multiple Choices Single Select Item
     Wait Until Element Is Enabled    ${ico_CreateNewItem_Create Item Page}
     Click Element    ${ico_CreateNewItem_Create Item Page}
     Sleep    30s
-    Unselect Frame
     Select Frame    ${ifr_QuestionContent_Create Item Page}
     Input Text    ${ifr_QuestionContentEdit_Create Item Page}    1 + 1 = ?
     Execute Javascript    ${jvs_MC-EditAnswerChoice_Create Item Page}
     Wait Until Element Is Visible    ${pop_EditAnswerChoices_Create Item Page}    10s
-    Unselect Frame
     Set Focus To Element    ${cbx_MC-PointsPossible_Create Item Page}
     Input Text    ${cbx_MC-PointsPossible_Create Item Page}    2
 

@@ -1,0 +1,10 @@
+*** Variables ***
+${invalid_username}    Abcd
+${invalid_password}    Linkit
+${empty_username}    ${empty}
+${empty_password}    ${empty}
+${errormessage_invalidlogin}    Your username and password do not match our records.
+${errormessage_emptyusername}    Please enter your user name
+${errormessage_emptypassword}    Please enter your password
+${valid_username}    dcragg    # Username is District Admin role
+${valid_password}    Linkit1*
