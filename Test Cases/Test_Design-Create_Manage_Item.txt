@@ -59,24 +59,29 @@ TC03 - Create Multiple Choices Single Select Item
     Select Frame    ${ifr_QuestionContent_Create Item Page}
     Press Key    ${ifr_QuestionContentEdit_Create Item Page}    1 + 1 = ?
     Comment    Click to edit Answer Choices
+    Unselect Frame
     Execute Javascript    ${jvs_MC-EditAnswerChoice_Create Item Page}
     Sleep    3s
     Comment    Enter PointsPossible
     Generate PointsPossible - Create_Item_Page
     Input Text    ${cbx_MC-PointsPossible_Create Item Page}    ${pointspossible}
     Comment    Enter Answer Choices content
-    Comment    Select Frame    ${txt_MC-CorrectAnswer1_Create Item Page}
-    Comment    Clear Element Text    ${txt_MC-CorrectAnswer1_Create Item Page}
-    Comment    Input Text    ${txt_MC-CorrectAnswer1_Create Item Page}    ${MC-CorrectAnswer1 content}
-    Comment    Select Frame    ${txt_MC-CorrectAnswer2_Create Item Page}
-    Comment    Clear Element Text    ${txt_MC-CorrectAnswer2_Create Item Page}
-    Comment    Input Text    ${txt_MC-CorrectAnswer2_Create Item Page}    ${MC-CorrectAnswer2 content}
-    Comment    Select Frame    ${txt_MC-CorrectAnswer3_Create Item Page}
-    Comment    Clear Element Text    ${txt_MC-CorrectAnswer3_Create Item Page}
-    Comment    Input Text    ${txt_MC-CorrectAnswer3_Create Item Page}    ${MC-CorrectAnswer3 content}
-    Comment    Select Frame    ${txt_MC-CorrectAnswer4_Create Item Page}
-    Comment    Clear Element Text    ${txt_MC-CorrectAnswer4_Create Item Page}
-    Comment    Input Text    ${txt_MC-CorrectAnswer4_Create Item Page}    ${MC-CorrectAnswer4 content}
+    Select Frame    ${txt_MC-CorrectAnswer1_Create Item Page}
+    Clear Element Text    ${txt_MC-CorrectAnswer1_Create Item Page}
+    Input Text    ${txt_MC-CorrectAnswer1_Create Item Page}    ${MC-CorrectAnswer1 content}
+    Unselect Frame
+    Select Frame    ${txt_MC-CorrectAnswer2_Create Item Page}
+    Clear Element Text    ${txt_MC-CorrectAnswer2_Create Item Page}
+    Input Text    ${txt_MC-CorrectAnswer2_Create Item Page}    ${MC-CorrectAnswer2 content}
+    Unselect Frame
+    Select Frame    ${txt_MC-CorrectAnswer3_Create Item Page}
+    Clear Element Text    ${txt_MC-CorrectAnswer3_Create Item Page}
+    Input Text    ${txt_MC-CorrectAnswer3_Create Item Page}    ${MC-CorrectAnswer3 content}
+    Unselect Frame
+    Select Frame    ${txt_MC-CorrectAnswer4_Create Item Page}
+    Clear Element Text    ${txt_MC-CorrectAnswer4_Create Item Page}
+    Input Text    ${txt_MC-CorrectAnswer4_Create Item Page}    ${MC-CorrectAnswer4 content}
+    Unselect Frame
     Comment    Select correct answer and save changes
     Select Checkbox    ${chx_MC-CorrectAnswer2_Create Item Page}
     Click Element    ${btn_MC-SaveChanges_Create Item Page}

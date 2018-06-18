@@ -10,7 +10,7 @@ Resource          ../Interfaces/Test_Design/Item_Set_Page.txt
 *** Keywords ***
 Generate PointsPossible - Create_Item_Page
     ${pointspossible}=    Generate Random String    1    [NUMBERS]
-    Set Global Variable    ${pointspossible}=
+    Set Global Variable    ${pointspossible}
 
 Navigate To Item Page
     Open Browser    http://demo.linkit1.poetadigital.com/QTIItem?qtiItemGroupID=22674&itemSetName=ItemSet-JAGY4297    Chrome

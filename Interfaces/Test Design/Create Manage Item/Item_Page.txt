@@ -10,10 +10,10 @@ ${rad_MC-MultiSelectOption_Create Item Page}    //*[@id="cke_78_uiElement"]/div[
 ${rad_MC-SingleSelectOption_Create Item Page}    //*[@id="cke_78_uiElement"]/div[2]/div[2]/input[1]
 ${cbx_MC-PointsPossible_Create Item Page}    //*[@id="cke_78_uiElement"]/div[2]/div[1]/span/input[1]
 ${btn_SaveItem_Create Item Page}    //*[@id="btnCreateItem"]
-${txt_MC-CorrectAnswer1_Create Item Page}    //*[@id="cke_78_uiElement"]/div[4]/ul/li[1]/div[3]/div/div/div/iframe
-${txt_MC-CorrectAnswer2_Create Item Page}    //*[@id="cke_78_uiElement"]/div[4]/ul/li[2]
-${txt_MC-CorrectAnswer3_Create Item Page}    //*[@id="cke_78_uiElement"]/div[4]/ul/li[3]
-${txt_MC-CorrectAnswer4_Create Item Page}    //*[@id="cke_78_uiElement"]/div[4]/ul/li[4]
+${txt_MC-CorrectAnswer1_Create Item Page}    //*[@id="cke_78_uiElement"]/div[4]/ul/li[1]/div[3]/div/div/div/iframe | //body
+${txt_MC-CorrectAnswer2_Create Item Page}    //*[@id="cke_78_uiElement"]/div[4]/ul/li[2]/div[3]/div/div/div/iframe | //body
+${txt_MC-CorrectAnswer3_Create Item Page}    //*[@id="cke_78_uiElement"]/div[4]/ul/li[3]/div[3]/div/div/div/iframe | //body
+${txt_MC-CorrectAnswer4_Create Item Page}    //*[@id="cke_78_uiElement"]/div[4]/ul/li[4]/div[3]/div/div/div/iframe | //body
 ${btn_MC-AddChoice_Create Item Page}    //*[@id="cke_78_uiElement"]/div[4]/div[5]/*[@id="bntAddChoice"]
 ${chx_MC-CorrectAnswer1_Create Item Page}    //*[@id="cke_78_uiElement"]/div[4]/ul/li[1]/div[2]/input
 ${chx_MC-CorrectAnswer2_Create Item Page}    //*[@id="cke_78_uiElement"]/div[4]/ul/li[2]/div[2]/input
