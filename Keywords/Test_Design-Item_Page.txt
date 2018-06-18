@@ -4,8 +4,8 @@ Resource          ../Variables/Global_Variables.txt
 Resource          ../Variables/Login_Page.txt
 Resource          ../Variables/Create_Item_Page_Variables.txt
 Resource          ../Interfaces/Login/Login.txt
-Resource          ../Interfaces/Test_Design/Create_Item_Page.txt
-Resource          ../Interfaces/Test_Design/Item_Set_Page.txt
+Resource          ../Interfaces/Test Design/Create Manage Item/Item_Page.txt
+Resource          ../Interfaces/Test Design/Create Manage Item/Item_Set_Page.txt
 
 *** Keywords ***
 Generate PointsPossible - Create_Item_Page

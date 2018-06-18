@@ -1,6 +1,8 @@
 *** Settings ***
 Library           Selenium2Library
 Resource          ../Interfaces/Login/Login.txt
+Resource          ../Variables/Login_Page.txt
+Resource          ../Interfaces/Top Menu/Top_Navigation_Menu.txt
 
 *** Keywords ***
 Open Portal
@@ -11,7 +13,7 @@ Open Portal
 
 Login As Valid User
     Open Portal    146
-    Input Text    ${txt_username_Login Page}    dcragg
-    Input Text    ${txt_password_Login Page}    Linkit1*
+    Input Text    ${txt_username_Login Page}    ${valid_username}
+    Input Text    ${txt_password_Login Page}    ${valid_password}
     Click Element    ${btn_submit_Login Page}
-    Wait Until Element Is Enabled    //*[@id="status-infos"]/li[3]/a
+    Wait Until Element Is Enabled    ${btn_SignOut_Home Page}

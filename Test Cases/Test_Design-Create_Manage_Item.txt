@@ -1,17 +1,14 @@
 *** Settings ***
 Library           Selenium2Library
 Resource          ../Keywords/Login_page.txt
-Resource          ../Keywords/Test Design - Item Bank Page.txt
 Resource          ../Variables/Global_Variables.txt
-Resource          ../Interfaces/Top_Area_Icons/Top_Area_Icons.txt
-Resource          ../Interfaces/Test_Design/Create_Item_Page.txt
-Resource          ../Interfaces/Test_Design/Item_Bank_Page.txt
-Resource          ../Interfaces/Test_Design/Item_Set_Page.txt
-Resource          ../Interfaces/Home/Home_Page.txt
-Resource          ../Interfaces/Home/Top_Navigation_Menu.txt
 Resource          ../Variables/Login_Page.txt
 Resource          ../Variables/Create_Item_Page_Variables.txt
-Resource          ../Keywords/Test Design - Create_Item_Page.txt
+Resource          ../Interfaces/Top Menu/Top_Navigation_Menu.txt
+Resource          ../Interfaces/Test Design/Create Manage Item/Item_Bank_Page.txt
+Resource          ../Interfaces/Test Design/Create Manage Item/Item_Page.txt
+Resource          ../Interfaces/Test Design/Create Manage Item/Item_Set_Page.txt
+Resource          ../Keywords/Test_Design-Item_Page.txt
 
 *** Test Cases ***
 TC01 - Create New Item Bank
@@ -25,7 +22,7 @@ TC01 - Create New Item Bank
     Wait Until Element Is Enabled    ${btn_AddNewItemBank_Item Bank Page}
     Click Element    ${btn_AddNewItemBank_Item Bank Page}
     Wait Until Element Is Visible    ${pop_ItemBankName_Item Bank Page}
-    Generate Item Bank Name - Item Bank Page
+    Generate PointsPossible - Create_Item_Page
     Input Text    ${txt_ItemBankName_Item Bank Page}    ${itembankname}
     Click Element    ${btn_CreateItemBank_Item Bank Page}
     Wait Until Element Is Not Visible    ${pop_ItemBankName_Item Bank Page}    10s
@@ -54,17 +51,18 @@ TC02 - Create Item Set
 
 TC03 - Create Multiple Choices Single Select Item
     Navigate To Item Page
-    Sleep    30s
-    Wait Until Element Is Enabled    ${btn_SaveItem_Create Item Page}    10s
+    Sleep    60s
+    Wait Until Element Is Enabled    ${btn_SaveItem_Create Item Page}    90s
     Select Frame    ${ifr_QuestionContent_Create Item Page}
     Press Key    ${ifr_QuestionContentEdit_Create Item Page}    1 + 1 = ?
     Comment    Click to edit Answer Choices
     Unselect Frame
+    Select Frame    ${ifr_QuestionContent_Create Item Page}
     Execute Javascript    ${jvs_MC-EditAnswerChoice_Create Item Page}
-    Sleep    3s
+    Sleep    5s
     Comment    Enter PointsPossible
-    Generate PointsPossible - Create_Item_Page
-    Input Text    ${cbx_MC-PointsPossible_Create Item Page}    ${pointspossible}
+    Comment    Generate PointsPossible - Create_Item_Page
+    Input Text    ${cbx_MC-PointsPossible_Create Item Page}    2
     Comment    Enter Answer Choices content
     Select Frame    ${txt_MC-CorrectAnswer1_Create Item Page}
     Clear Element Text    ${txt_MC-CorrectAnswer1_Create Item Page}

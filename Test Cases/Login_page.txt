@@ -2,20 +2,31 @@
 Library           Selenium2Library
 Resource          ../Keywords/Login_page.txt
 Resource          ../Interfaces/Login/Login.txt
-Resource          ../Interfaces/Home/Home_Page.txt
-Resource          ../Interfaces/Home/Top_Navigation_Menu.txt
 Resource          ../Variables/Login_Page.txt
+Resource          ../Interfaces/Top Menu/Top_Navigation_Menu.txt
 
 *** Test Cases ***
 TC01 - Invalid Username
+    [Documentation]    1. Navigate to Linkit portal (146 environment).
+    ...    2. Enter invalid username.
+    ...    3. Enter valid password.
+    ...    4. Click [Login] button.
+    ...    5. Verify the "invalid username" error message is appeared.
+    ...    6. Close the automate browser window.
     Open Portal    146
     Input Text    ${txt_username_Login Page}    ${invalid_username}
-    Input Text    ${txt_password_Login Page}    ${invalid_password}
+    Input Text    ${txt_password_Login Page}    ${valid_password}
     Click Button    ${btn_submit_Login Page}
-    Element Should Contain    ${msg_ErrorDisplay_Login Page}    ${errormessage_invalidlogin}
+    Wait Until Element Contains    ${msg_ErrorDisplay_Login Page}    ${errormessage_invalidlogin}
     Close Browser
 
 TC06 - Login Successful
+    [Documentation]    1. Navigate to Linkit portal (146 environment)
+    ...    2. Enter valid username.
+    ...    3. Enter valid password.
+    ...    4. Click [Login] button.
+    ...    5. Verify is direct to Home page and [Sign Out] button is presented.
+    ...    6. Close the automate browser window.
     Open Portal    146
     Input Text    ${txt_username_Login Page}    ${valid_username}
     Input Text    ${txt_password_Login Page}    ${valid_password}
@@ -24,43 +35,75 @@ TC06 - Login Successful
     Close Browser
 
 TC02 - Invalid Password
+    [Documentation]    1. Navigate to Linkit portal (146 environment)
+    ...    2. Enter valid username.
+    ...    3. Enter invalid password.
+    ...    4. Click [Login] button.
+    ...    5. Verify the "invalid password" is appeared.
+    ...    6. Close the automate browser window.
     Open Portal    146
-    Input Text    ${txt_username_Login Page}    ${invalid_username}
+    Input Text    ${txt_username_Login Page}    ${valid_username}
     Input Text    ${txt_password_Login Page}    ${invalid_password}
     Click Button    ${btn_submit_Login Page}
-    Element Should Contain    ${msg_ErrorDisplay_Login Page}    ${errormessage_invalidlogin}
+    Wait Until Element Contains    ${msg_ErrorDisplay_Login Page}    ${errormessage_invalidlogin}
     Close Browser
 
 TC03 - Invalid Username & Password
+    [Documentation]    1. Navigate to Linkit portal (146 environment)
+    ...    2. Enter invalid username.
+    ...    3. Enter invalid password.
+    ...    4. Click [Login] button.
+    ...    5. Verify the error message is appeared.
+    ...    6. Close the automate browser window.
     Open Portal    146
     Input Text    ${txt_username_Login Page}    ${invalid_username}
     Input Text    ${txt_password_Login Page}    ${invalid_password}
     Click Button    ${btn_submit_Login Page}
-    Element Should Contain    ${msg_ErrorDisplay_Login Page}    ${errormessage_invalidlogin}
+    Wait Until Element Contains    ${msg_ErrorDisplay_Login Page}    ${errormessage_invalidlogin}
     Close Browser
 
 TC04 - Empty Username
+    [Documentation]    1. Navigate to Linkit portal (146 environment)
+    ...    2. Do not enter username.
+    ...    3. Enter valid password.
+    ...    4. Click [Login] button.
+    ...    5. Verify the error message is appeared.
+    ...    6. Close the automate browser window.
     Open Portal    146
     Input Text    ${txt_username_Login Page}    ${empty_username}
     Input Text    ${txt_password_Login Page}    ${valid_password}
     Click Button    ${btn_submit_Login Page}
-    Element Should Contain    ${msg_ErrorDisplay_Login Page}    ${errormessage_emptyusername}
+    Wait Until Element Contains    ${msg_ErrorDisplay_Login Page}    ${errormessage_emptyusername}
     Close Browser
 
 TC05 - Empty Password
+    [Documentation]    1. Navigate to Linkit portal (146 environment)
+    ...    2. Enter valid username.
+    ...    3. Do not enter password.
+    ...    4. Click [Login] button.
+    ...    5. Verify the error message is appeared.
+    ...    6. Close the automate browser window.
     Open Portal    146
     Input Text    ${txt_username_Login Page}    ${valid_username}
     Input Text    ${txt_password_Login Page}    ${empty_password}
     Click Button    ${btn_submit_Login Page}
-    Element Should Contain    ${msg_ErrorDisplay_Login Page}    ${errormessage_emptypassword}
+    Wait Until Element Contains    ${msg_ErrorDisplay_Login Page}    ${errormessage_emptypassword}
     Close Browser
 
 TC07 - Logout Successful
+    [Documentation]    1. Navigate to Linkit portal (146 environment)
+    ...    2. Enter valid username.
+    ...    3. Enter valid password.
+    ...    4. Click [Login] button.
+    ...    5. Verify the error message is appeared.
+    ...    6. Click on [Sign Out] button.
+    ...    7. Verify the user is direct to Login page.
+    ...    8. Close the automate browser window.
     Open Portal    146
     Input Text    ${txt_username_Login Page}    ${valid_username}
     Input Text    ${txt_password_Login Page}    ${valid_password}
     Click Button    ${btn_submit_Login Page}
     Wait Until Element Is Enabled    ${btn_SignOut_Home Page}
     Click Element    ${btn_SignOut_Home Page}
-    Page Should Contain    ${lbl_PageLabel_Login Page}
+    Wait Until Element Is Visible    ${lbl_PageLabel_Login Page}
     Close Browser
