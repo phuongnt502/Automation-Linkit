@@ -17,5 +17,5 @@ Navigate To Item Page
     Input Text    ${txt_username_Login Page}    ${valid_username}
     Input Text    ${txt_password_Login Page}    ${valid_password}
     Click Element    ${btn_submit_Login Page}
-    Wait Until Element Is Enabled    ${ico_CreateNewItem_Create Item Page}
+    Wait Until Element Is Enabled    ${ico_CreateNewItem_Create Item Page}    120 seconds
     Click Element    ${ico_CreateNewItem_Create Item Page}
