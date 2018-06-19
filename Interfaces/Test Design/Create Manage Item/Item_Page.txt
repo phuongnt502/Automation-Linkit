@@ -5,7 +5,7 @@ ${ifr_QuestionContent_Create Item Page}    //*[@id="cke_1_contents"]/iframe
 ${ifr_MC-AnswerChoiceArea_Create Item Page}    //*[@id="RESPONSE_1" and class="multipleChoice"]
 ${jvs_MC-EditAnswerChoice_Create Item Page}    $($('#divQContent iframe').contents()).find('#single-click').trigger('click')
 ${ifr_QuestionContentEdit_Create Item Page}    //*[@id="cke_1_contents"]/iframe | //body
-${pop_EditAnswerChoices_Create Item Page}    /html/body/div[11]/table/tbody/tr/td/div
+${pop_EditAnswerChoices_Create Item Page}    //*[@class="cke_dialog_body"]/div[contains(text(),'Multiple Choice Properties')]
 ${rad_MC-MultiSelectOption_Create Item Page}    //*[@id="cke_78_uiElement"]/div[2]/div[2]/input[2]
 ${rad_MC-SingleSelectOption_Create Item Page}    //*[@id="cke_78_uiElement"]/div[2]/div[2]/input[1]
 ${cbx_MC-PointsPossible_Create Item Page}    //*[@id="cke_78_uiElement"]/div[2]/div[1]/span/input[1]
@@ -24,3 +24,7 @@ ${val_MC-RadioSingleSelect_Create Item Page}    id=select_single
 ${val_MC-RadioMultiSelect_Create Item Page}    id=select_multi
 ${btn_SaveandClose Item_Create Item Page}    //*[@id="btnUpdateItemAndCloseNewItem"]
 ${jvs_MCV-EditAnswerChoice_CreateItemPage}    ${EMPTY}
+${ifr_MC-CorrectAnswer1_Create Item Page}    //*[@id="cke_78_uiElement"]/div[4]/ul/li[1]/div[3]/div/div/div/iframe
+${ifr_MC-CorrectAnswer2_Create Item Page}    //*[@id="cke_78_uiElement"]/div[4]/ul/li[2]/div[3]/div/div/div/iframe
+${ifr_MC-CorrectAnswer3_Create Item Page}    //*[@id="cke_78_uiElement"]/div[4]/ul/li[3]/div[3]/div/div/div/iframe
+${ifr_MC-CorrectAnswer4_Create Item Page}    //*[@id="cke_78_uiElement"]/div[4]/ul/li[4]/div[3]/div/div/div/iframe

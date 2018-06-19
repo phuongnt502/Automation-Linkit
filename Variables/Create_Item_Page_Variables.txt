@@ -1,8 +1,8 @@
 *** Variables ***
-${MC-CorrectAnswer1 content}    Correct Answer 1
-${MC-CorrectAnswer2 content}    Correct Answer 2
-${MC-CorrectAnswer3 content}    Correct Answer 3
-${MC-CorrectAnswer4 content}    Correct Answer 4
+${MC-CorrectAnswer1 content}    1
+${MC-CorrectAnswer2 content}    2
+${MC-CorrectAnswer3 content}    3
+${MC-CorrectAnswer4 content}    4
 ${MC-Variable}    37
 ${InlineChoice}    8
 ${Fill-In-The-Blank}    9
