@@ -10,3 +10,4 @@ ${ExtendedText}    10
 ${DrawingResponse}    10d
 ${Multi-Part}     21
 ${Drag-and-Drop}    30
+${MCProperties title}    Multiple Choice Properties

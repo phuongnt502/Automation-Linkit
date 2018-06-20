@@ -90,21 +90,18 @@ TC03 - Create Multiple Choices Single Select Item
 
 TC04 - Create Multiple Choices Multi-Select Item
     Navigate To Item Page
-    Sleep    40s
     Wait Until Element Is Enabled    ${btn_SaveItem_Create Item Page}    90s
     Comment    Click to edit Answer Choices
     Select Frame    ${ifr_QuestionContent_Create Item Page}
-    Click Element    ${ifr_QuestionContentEdit_Create Item Page}
     Press Key    ${ifr_QuestionContentEdit_Create Item Page}    1 + 1 = ?
-    Comment    Unselect Frame
-    Comment    Select Frame    ${ifr_QuestionContent_Create Item Page}
-    Click Element    //*[@id="RESPONSE_1"]/button
-    Comment    Execute Javascript    ${jvs_MC-EditAnswerChoice_Create Item Page}
-    Sleep    5s
+    Click Element    ${btn_MC-EditAnswerChoice_Create Item Page}
     Wait Until Element Is Visible    ${pop_EditAnswerChoices_Create Item Page}    30s
-    Comment    Enter PointsPossible
+    Element Should Contain    ${pop_EditAnswerChoices_Create Item Page}    ${MCProperties title}
+    Comment    Select Multi-Select option
     Click Element    ${rad_MC-MultiSelectOption_Create Item Page}
+    Comment    Set Max Choices option
     Input Text    ${cbx_MC-MaxChoices_Create Item Page}    2
+    Comment    Enter PointsPossible
     Generate PointsPossible - Create_Item_Page
     Input Text    ${cbx_MC-PointsPossible_Create Item Page}    ${pointspossible}
     Comment    Enter Answer Choices content
@@ -129,11 +126,10 @@ TC04 - Create Multiple Choices Multi-Select Item
     Select Checkbox    ${chx_MC-CorrectAnswer4_Create Item Page}
     Click Element    ${btn_MC-SaveChanges_Create Item Page}
     Wait Until Element Is Not Visible    ${pop_EditAnswerChoices_Create Item Page}
-    Select Frame    ${ifr_QuestionContent_Create Item Page}
-    Input Text    ${ifr_QuestionContentEdit_Create Item Page}    1 + 1 = ?
     Wait Until Element Is Enabled    ${btn_SaveandClose Item_Create Item Page}
     Click Element    ${btn_SaveandClose Item_Create Item Page}
     Wait Until Element Is Enabled    ${ico_CreateNewItem_Create Item Page}    30s
+    Page Should Contain Element    ${ico_CreateNewItem_Create Item Page}
     Close Browser
 
 TC05 - Create Multiple Choices Variables Item
