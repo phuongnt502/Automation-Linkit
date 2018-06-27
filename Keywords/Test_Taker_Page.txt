@@ -1,0 +1,13 @@
+*** Settings ***
+Library           Selenium2Library
+
+*** Keywords ***
+Open Test Taker
+    [Arguments]    ${env}
+    Run Keyword If    ${env}==146    Open Browser    http://test.linkit.poetadigital.com/testtaker/testtaker.html    Chrome
+    Run Keyword If    ${env}==117    Open Browser    https://test.linkitdev.com/testtaker/testtaker.html    Chrome
+    Run Keyword If    ${env}=="prod"    Open Browser    https://test.linkit.com/testtaker/testtaker.html    Chrome
+
+Select Student
+    [Arguments]    ${studentname}
+    Click Element    //li[contains(text(), '${studentname}')]

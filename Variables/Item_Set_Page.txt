@@ -1,0 +1,5 @@
+*** Variables ***
+${TestBankRadioButton}    selectOrCreateBank
+${Grade K}        ${EMPTY}
+@{GradeList}      40    25    30    27    26    28    29
+...               31    32    35    36    37    38    33
