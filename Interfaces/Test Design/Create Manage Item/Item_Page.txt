@@ -3,28 +3,48 @@ ${drp_ItemType_Create Item Page}    //*[@id="changeItemType"]
 ${drp_MultipleChoicesItem_Create Item Page}    //*[@id="changeItemType"]/option[1]
 ${ifr_QuestionContent_Create Item Page}    //*[@id="cke_1_contents"]/iframe
 ${ifr_MC-AnswerChoiceArea_Create Item Page}    //*[@id="RESPONSE_1" and class="multipleChoice"]
-${jvs_MC-EditAnswerChoice_Create Item Page}    $($('#divQContent iframe').contents()).find('#single-click').trigger('click')
 ${ifr_QuestionContentEdit_Create Item Page}    //*[@id="cke_1_contents"]/iframe | //body
-${pop_EditAnswerChoices_Create Item Page}    //*[@id="cke_dialog_title_74"]
-${rad_MC-MultiSelectOption_Create Item Page}    //*[@id="cke_78_uiElement"]/div[2]/div[2]/input[2]
-${rad_MC-SingleSelectOption_Create Item Page}    //*[@id="cke_78_uiElement"]/div[2]/div[2]/input[1]
-${cbx_MC-PointsPossible_Create Item Page}    //*[@id="cke_78_uiElement"]/div[2]/div[1]/span/input[1]
+${pop_MC-Properties_Create Item Page}    //div[contains(text(),"Multiple Choice Properties")]
+${rad_MC-MultiSelectOption_Create Item Page}    select_multi
+${rad_MC-SingleSelectOption_Create Item Page}    select_single
+${cbx_PointsPossible_Create Item Page}    //*[@class="point"]
 ${btn_SaveItem_Create Item Page}    //*[@id="btnCreateItem"]
-${txt_MC-CorrectAnswer1_Create Item Page}    //*[@id="cke_78_uiElement"]/div[4]/ul/li[1]/div[3]/div/div/div/iframe | //body
-${txt_MC-CorrectAnswer2_Create Item Page}    //*[@id="cke_78_uiElement"]/div[4]/ul/li[2]/div[3]/div/div/div/iframe | //body
-${txt_MC-CorrectAnswer3_Create Item Page}    //*[@id="cke_78_uiElement"]/div[4]/ul/li[3]/div[3]/div/div/div/iframe | //body
-${txt_MC-CorrectAnswer4_Create Item Page}    //*[@id="cke_78_uiElement"]/div[4]/ul/li[4]/div[3]/div/div/div/iframe | //body
-${btn_MC-AddChoice_Create Item Page}    //*[@id="cke_78_uiElement"]/div[4]/div[5]/*[@id="bntAddChoice"]
-${chx_MC-CorrectAnswer1_Create Item Page}    //*[@id="cke_78_uiElement"]/div[4]/ul/li[1]/div[2]/input
-${chx_MC-CorrectAnswer2_Create Item Page}    //*[@id="cke_78_uiElement"]/div[4]/ul/li[2]/div[2]/input
-${chx_MC-CorrectAnswer3_Create Item Page}    //*[@id="cke_78_uiElement"]/div[4]/ul/li[3]/div[2]/input
-${chx_MC-CorrectAnswer4_Create Item Page}    //*[@id="cke_78_uiElement"]/div[4]/ul/li[4]/div[2]/input
-${btn_MC-SaveChanges_Create Item Page}    //*[@id="cke_82_label"]
+${txt_CorrectAnswer1_Create Item Page}    //body[contains(text(),"Answer 1")]
+${txt_CorrectAnswer2_Create Item Page}    //body[contains(text(),"Answer 2")]
+${txt_CorrectAnswer3_Create Item Page}    //body[contains(text(),"Answer 3")]
+${txt_CorrectAnswer4_Create Item Page}    //body[contains(text(),"Answer 4")]
+${btn_MC-AddChoice_Create Item Page}    //[@id="bntAddChoice"]
+${chx_MC-CorrectAnswer1_Create Item Page}    //ul/li[1]/div[2]/input
+${chx_MC-CorrectAnswer2_Create Item Page}    //ul/li[2]/div[2]/input
+${chx_MC-CorrectAnswer3_Create Item Page}    //ul/li[3]/div[2]/input
+${chx_MC-CorrectAnswer4_Create Item Page}    //ul/li[4]/div[2]/input
+${btn_PropertiesOK_Create Item Page}    //*[@class="cke_dialog_ui_button cke_dialog_ui_button_ok"]
 ${btn_SaveandClose Item_Create Item Page}    //*[@id="btnUpdateItemAndCloseNewItem"]
-${jvs_MCV-EditAnswerChoice_CreateItemPage}    ${EMPTY}
-${ifr_MC-CorrectAnswer1_Create Item Page}    //*[@id="cke_78_uiElement"]/div[4]/ul/li[1]/div[3]/div/div/div/iframe
-${ifr_MC-CorrectAnswer2_Create Item Page}    //*[@id="cke_78_uiElement"]/div[4]/ul/li[2]/div[3]/div/div/div/iframe
-${ifr_MC-CorrectAnswer3_Create Item Page}    //*[@id="cke_78_uiElement"]/div[4]/ul/li[3]/div[3]/div/div/div/iframe
-${ifr_MC-CorrectAnswer4_Create Item Page}    //*[@id="cke_78_uiElement"]/div[4]/ul/li[4]/div[3]/div/div/div/iframe
-${cbx_MC-MaxChoices_Create Item Page}    //*[@id="cke_78_uiElement"]/div[2]/div[2]/div[2]/span/input[1]
+${ifr_CorrectAnswer1_Create Item Page}    (//div[@class='cke_inner cke_reset']/div/iframe)[2]
+${ifr_CorrectAnswer2_Create Item Page}    (//div[@class='cke_inner cke_reset']/div/iframe)[3]
+${ifr_CorrectAnswer3_Create Item Page}    (//div[@class='cke_inner cke_reset']/div/iframe)[4]
+${ifr_CorrectAnswer4_Create Item Page}    (//div[@class='cke_inner cke_reset']/div/iframe)[5]
+${cbx_MC-MaxChoices_Create Item Page}    //*[@id="maxChoices"]
 ${btn_MC-EditAnswerChoice_Create Item Page}    //*[@id="RESPONSE_1"]/button
+${btn_PropertiesCANCEL_Create Item Page}    //*[@class="cke_dialog_ui_button cke_dialog_ui_button_cancel"]
+${pop_MCV-Properties_Create Item Page}    //div[contains(text(),"Multiple Choice with Variable Points")]
+${cbx_MCV-CorrectAnswer1-Points_Create Item Page}    //ul/li[1]/div[3]/span/input[1]
+${cbx_MCV-CorrectAnswer2-Points_Create Item Page}    //ul/li[2]/div[3]/span/input[1]
+${cbx_MCV-CorrectAnswer3-Points_Create Item Page}    //ul/li[3]/div[3]/span/input[1]
+${cbx_MCV-CorrectAnswer4-Points_Create Item Page}    //ul/li[4]/div[3]/span/input[1]
+${rad_MCV-MultiSelectOption_Create Item Page}    select_multi_variable
+${ifr_CorrectAnswer5_Create Item Page}    (//div[@class='cke_inner cke_reset']/div/iframe)[6]
+${cbx_MCV-CorrectAnswer5-Points_Create Item Page}    //ul/li[5]/div[3]/span/input[1]
+${txt_MC-CorrectAnswer5_Create Item Page}    //body[contains(text(), 'Answer 5')]
+${btn_MCV-AddChoice_Create Item Page}    //*[@id="bntAddChoiceVariable"]
+${pop_IC-Properties_Create Item Page}    //div[contains(text(), 'Inline Choice Properties')]
+${rad_IC-CorrectAnswer1_Create Item Page}    A
+${rad_IC-CorrectAnswer2_Create Item Page}    B
+${btn_IC-AddChoice_Create Item Page}    //*[@id="bntAddInlineChoice"]
+${pop_FITB-Properties_Create Item Page}    //div[contains(text(),"Text Entry Properties")]
+${cbx_ExpectedLength_Create Item Page}    //*[@id="expLength"]
+${btn_FITB-AddChoice_Create Item Page}    //*[@id="bntAddEntryChoice"]
+${chx_FITB-MisspellingOption_Create Item Page}    //*[@id="misSpelling"]
+${cbx_MisspellingPointsDeduction_Create Item Page}    //*[@id="misspelling-deduction"]
+${txt_FITB-CorrectAnswer1_Create Item Page}    //body[contains(text(),"Answer Correct 1")]
+${txt_FITB-CorrectAnswer2_Create Item Page}    //body[contains(text(),"Answer Correct 2")]

@@ -1,0 +1,12 @@
+*** Variables ***
+${txt_TestCode_Test Taker Page}    //*[@id="testCode"]
+${btn_SubmitTestCode_Test Taker Page}    //*[@id="submitButton"]
+${drp_IC-Interaction_Test Taker Page}    //div[@class="sbHolder"]
+${txt_FITB-Interaction_Test Taker Page}    //input[@class="textEntryInteraction"]
+${mpc_MultiSelect-Interaction_Test Taker Page}    //choiceinteraction[@class="choice-interaction-multi-select nonHover"]
+${btn_NextQuestion_Test Taker Page}    //*[@id="nextQuestionButton"]
+${btn_PreviousQuestion_Test Taker Page}    //*[@id="prevQuestionButton"]
+${btn_SubmitTest_Test Taker Page}    (//*[@id="acceptCompleteTestButton"])[2]
+${btn_CancelSubmitTest_Test Taker Page}    (//*[@id="cancelCompleteTestButton"])[2]
+${pop_CompletedTest_Test Taker Page}    //*[@id="testCompletedPanel"]
+${pop_SubmittingTest_Test Taker Page}    //*[@id="FirstPreSubmitWarning"]

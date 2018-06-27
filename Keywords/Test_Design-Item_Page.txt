@@ -6,6 +6,7 @@ Resource          ../Variables/Create_Item_Page_Variables.txt
 Resource          ../Interfaces/Login/Login.txt
 Resource          ../Interfaces/Test Design/Create Manage Item/Item_Page.txt
 Resource          ../Interfaces/Test Design/Create Manage Item/Item_Set_Page.txt
+Library           Selenium2Library
 
 *** Keywords ***
 Generate PointsPossible - Create_Item_Page
