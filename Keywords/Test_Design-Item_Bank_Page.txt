@@ -15,9 +15,3 @@ Generate Item Set Name - Item Bank Page
     ${randomnumber2}=    Generate Random String    4    [NUMBERS]
     ${itemsetname}=    Set Variable    ItemSet-${randomtext2}${randomnumber2}
     Set Global Variable    ${itemsetname}
-
-Generate VirtualTest Name
-    ${randomtext4}=    Generate Random String    4    [LETTERS]
-    ${randomnumber4}=    Generate Random String    4    [NUMBERS]
-    ${virtualtestname}=    Set Variable    VirtualTest-${randomtext4}${randomnumber4}
-    Set Global Variable    ${virtualtestname}

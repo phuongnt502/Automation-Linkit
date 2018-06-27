@@ -1,0 +1,43 @@
+*** Settings ***
+Library           Selenium2Library
+Resource          ../Keywords/Login_page.txt
+Resource          ../Variables/Assign_Online_Test_Page.txt
+Resource          ../Interfaces/Online Testing/Assign Online Test/Assign_Online_Test_Page.txt
+Resource          ../Variables/Global_Variables.txt
+Resource          ../Keywords/Common_Keywords.txt
+
+*** Test Cases ***
+TC01 - Assign Online Test To A Class
+    Login As Valid User
+    Navigate To Menu    ONLINE TESTING
+    Navigate to Sub-Menu    ASSIGN ONLINE TESTS
+    Wait Until Page Contains Element    ${btn_AssignTest_Assign Online Test Page}    10s
+    Sleep    15s
+    Click Element    ${drp_SelectGrade_Assign Online Test Page}
+    Select From List By Label    ${drp_SelectGrade_Assign Online Test Page}    K
+    Sleep    2s
+    Click Element    ${drp_SelectSubject_Assign Online Test Page}
+    Select From List By Label    ${drp_SelectSubject_Assign Online Test Page}    Language Arts
+    Sleep    2s
+    Click Element    ${drp_SelectBank_Assign Online Test Page}
+    Select From List By Label    ${drp_SelectBank_Assign Online Test Page}    AutomationBank
+    Sleep    2s
+    Click Element    ${drp_SelectTest_Assign Online Test Page}
+    Select From List By Label    ${drp_SelectTest_Assign Online Test Page}    AutomationTest02
+    Sleep    2s
+    Click Element    ${drp_SelectSchool_Assign Online Test}
+    Select From List By Label    ${drp_SelectSchool_Assign Online Test}    Bomba School
+    Sleep    2s
+    Click Element    ${drp_SelectTeacher_Assign Online Test}
+    Select From List By Label    ${drp_SelectTeacher_Assign Online Test}    Bomba, 01 (bomba01)
+    Sleep    2s
+    Click Element    ${drp_SelectTerm_Assign Online Test}
+    Select From List By Label    ${drp_SelectTerm_Assign Online Test}    Sep 2014 - Sep 2015
+    Sleep    2s
+    Click Element    ${drp_SelectClass_Assign Online Test}
+    Select From List By Label    ${drp_SelectClass_Assign Online Test}    Class 1 Bomba
+    Sleep    2s
+    Click Element    ${btn_AssignTest_Assign Online Test Page}
+    Wait Until Element Is Visible    ${btn_Print_Assign Online Test Page}    15s
+    Sleep    2s
+    Close Browser

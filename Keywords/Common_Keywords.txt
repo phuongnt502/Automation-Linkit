@@ -1,0 +1,13 @@
+*** Settings ***
+Resource          Login_page.txt
+Resource          ../Interfaces/Top Menu/Top_Navigation_Menu.txt
+Library           Selenium2Library
+
+*** Keywords ***
+Navigate To Menu
+    [Arguments]    ${menu_text}
+    Click Element    //a[contains[text(), '${menu_text}']
+
+Navigate To Sub-Menu
+    [Arguments]    ${sub-menu}
+    Click Element    ////a[contains(text(), '${sub-menu}')]

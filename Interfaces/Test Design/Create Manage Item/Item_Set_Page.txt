@@ -1,3 +1,15 @@
 *** Variables ***
 ${ico_CreateNewItem_Create Item Page}    //*[@id="imgCreateNewItem"]
 ${ico_ImportItem_Create Item Page}    //*[@id="divQtiItemList"]/div[1]/div[1]/div[1]/div/img[2]
+${ico_SaveAsTest_Item Set Page}    //*[@id="imgCreateTest"]
+${pop_CreateTest_Item Set Page}    //*[@id="popup_content"]/div[1]/h1[contains(text(),'Create Test')]
+${rad_ExistingBank_Item Set Page}    existingBank
+${rad_NewBank_Item Set Page}    newBank
+${drp_ExistingBank-Grade_Item Set Page}    //*[@id="GradeExistingBank"]/select
+${drp_NewBank-Grade_Item Set Page}    //*[@id="GradeNewBank"]/select
+${drp_ExistingBank-Subject_Item Set Page}    //*[@id="SubjectExistingBank"]/select
+${drp_NewBank-Subject_Item Set Page}    //*[@id="SubjectNewBank"]/select
+${txt_NewBank-Name_Item Set Page}    //fieldset[1]/div[2]/div/p[5]/input
+${txt_TestName_Item Set Page}    //fieldset[2]/div/div/p/input
+${drp_ExistingBank-Name_Item Set Page}    //fieldset[1]/div[2]/div/p[5]/select
+${btn_CreateTest_Item Set Page}    //*[@id="popup_content"]/div[1]/div/button

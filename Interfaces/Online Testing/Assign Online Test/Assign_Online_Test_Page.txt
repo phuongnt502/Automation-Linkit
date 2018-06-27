@@ -1,0 +1,15 @@
+*** Variables ***
+${drp_SelectGrade_Assign Online Test Page}    //*[@id="selectGrade"]
+${drp_SelectSubject_Assign Online Test Page}    //*[@id="selectSubject"]
+${drp_SelectBank_Assign Online Test Page}    //*[@id="selectBank"]
+${drp_SelectTest_Assign Online Test Page}    //*[@id="selectTest"]
+${rad_ClassAssignment_Assign Online Test Page}    radioSingleClass
+${rad_GroupAssignment_Assign Online Test Page}    radioMultiClass
+${chx_StudentLevelOption_Assign Online Test}    //*[@id="cbStudentLevelAssignment"]
+${chx_RosterOption_Assign Online Test}    //*[@id="chkUseRoster"]
+${drp_SelectSchool_Assign Online Test}    //*[@id="selectSchool"]
+${drp_SelectTeacher_Assign Online Test}    //*[@id="selectTeacher"]
+${drp_SelectTerm_Assign Online Test}    //*[@id="selectTerm"]
+${drp_SelectClass_Assign Online Test}    //*[@id="selectClass"]
+${btn_AssignTest_Assign Online Test Page}    //*[@id="btnSubmit"]
+${btn_Print_Assign Online Test Page}    //*[@id="divLinkPrintAssignment"]

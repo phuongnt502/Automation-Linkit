@@ -1,0 +1,15 @@
+*** Settings ***
+Library           String
+
+*** Keywords ***
+Generate Test Bank
+    ${randomtext3}=    Generate Random String    4    [LETTERS]
+    ${randomnumber3}=    Generate Random String    4    [NUMBERS]
+    ${testbankname}=    Set Variable    AutomationBank-${randomtext3}${randomnumber3}
+    Set Global Variable    ${testbankname}
+
+Generate VirtualTest
+    ${randomtext4}=    Generate Random String    4    [LETTERS]
+    ${randomnumber4}=    Generate Random String    4    [NUMBERS]
+    ${virtualtestname}=    Set Variable    AutomationTest-${randomtext4}${randomnumber4}
+    Set Global Variable    ${virtualtestname}

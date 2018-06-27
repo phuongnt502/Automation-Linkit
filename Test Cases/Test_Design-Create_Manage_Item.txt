@@ -9,6 +9,8 @@ Resource          ../Interfaces/Test Design/Create Manage Item/Item_Bank_Page.tx
 Resource          ../Interfaces/Test Design/Create Manage Item/Item_Page.txt
 Resource          ../Interfaces/Test Design/Create Manage Item/Item_Set_Page.txt
 Resource          ../Keywords/Test_Design-Item_Page.txt
+Resource          ../Variables/Item_Set_Page.txt
+Resource          ../Keywords/Test_Design-Item_Set_Page.txt
 
 *** Test Cases ***
 TC01 - Create New Item Bank
@@ -52,100 +54,327 @@ TC02 - Create Item Set
 TC03 - Create Multiple Choices Single Select Item
     Navigate To Item Page
     Sleep    40s
-    Wait Until Element Is Enabled    ${btn_SaveItem_Create Item Page}    90s
-    Comment    Click to edit Answer Choices
-    Execute Javascript    ${jvs_MC-EditAnswerChoice_Create Item Page}
-    Sleep    5s
-    Wait Until Element Is Visible    ${pop_EditAnswerChoices_Create Item Page}
-    Comment    Enter PointsPossible
-    Generate PointsPossible - Create_Item_Page
-    Input Text    ${cbx_MC-PointsPossible_Create Item Page}    ${pointspossible}
-    Comment    Enter Answer Choices content
-    Select Frame    ${ifr_MC-CorrectAnswer1_Create Item Page}
-    Clear Element Text    ${txt_MC-CorrectAnswer1_Create Item Page}
-    Input Text    ${txt_MC-CorrectAnswer1_Create Item Page}    ${MC-CorrectAnswer1 content}
-    Unselect Frame
-    Select Frame    ${ifr_MC-CorrectAnswer2_Create Item Page}
-    Clear Element Text    ${txt_MC-CorrectAnswer2_Create Item Page}
-    Input Text    ${txt_MC-CorrectAnswer2_Create Item Page}    ${MC-CorrectAnswer2 content}
-    Unselect Frame
-    Select Frame    ${ifr_MC-CorrectAnswer3_Create Item Page}
-    Clear Element Text    ${txt_MC-CorrectAnswer3_Create Item Page}
-    Input Text    ${txt_MC-CorrectAnswer3_Create Item Page}    ${MC-CorrectAnswer3 content}
-    Unselect Frame
-    Select Frame    ${ifr_MC-CorrectAnswer4_Create Item Page}
-    Clear Element Text    ${txt_MC-CorrectAnswer4_Create Item Page}
-    Input Text    ${txt_MC-CorrectAnswer4_Create Item Page}    ${MC-CorrectAnswer4 content}
-    Unselect Frame
-    Comment    Select correct answer and save changes
-    Select Checkbox    ${chx_MC-CorrectAnswer2_Create Item Page}
-    Click Element    ${btn_MC-SaveChanges_Create Item Page}
-    Wait Until Element Is Not Visible    ${pop_EditAnswerChoices_Create Item Page}
-    Select Frame    ${ifr_QuestionContent_Create Item Page}
-    Press Key    ${ifr_QuestionContentEdit_Create Item Page}    1 + 1 = ?
-    Wait Until Element Is Enabled    ${btn_SaveandClose Item_Create Item Page}
-    Click Element    ${btn_SaveandClose Item_Create Item Page}
-    Wait Until Element Is Enabled    ${ico_CreateNewItem_Create Item Page}    30s
-    Close Browser
-
-TC04 - Create Multiple Choices Multi-Select Item
-    Navigate To Item Page
-    Wait Until Element Is Enabled    ${btn_SaveItem_Create Item Page}    90s
     Comment    Click to edit Answer Choices
     Select Frame    ${ifr_QuestionContent_Create Item Page}
     Press Key    ${ifr_QuestionContentEdit_Create Item Page}    1 + 1 = ?
     Click Element    ${btn_MC-EditAnswerChoice_Create Item Page}
-    Wait Until Element Is Visible    ${pop_EditAnswerChoices_Create Item Page}    30s
-    Element Should Contain    ${pop_EditAnswerChoices_Create Item Page}    ${MCProperties title}
-    Comment    Select Multi-Select option
-    Click Element    ${rad_MC-MultiSelectOption_Create Item Page}
-    Comment    Set Max Choices option
-    Input Text    ${cbx_MC-MaxChoices_Create Item Page}    2
+    Sleep    3s
+    Unselect Frame
     Comment    Enter PointsPossible
-    Generate PointsPossible - Create_Item_Page
-    Input Text    ${cbx_MC-PointsPossible_Create Item Page}    ${pointspossible}
+    Wait Until Element Is Visible    ${pop_MC-Properties_Create Item Page}    10s
+    Click Element    ${pop_MC-Properties_Create Item Page}
+    Input Text    ${cbx_PointsPossible_Create Item Page}    2
+    Sleep    2s
     Comment    Enter Answer Choices content
-    Select Frame    ${ifr_MC-CorrectAnswer1_Create Item Page}
-    Clear Element Text    ${txt_MC-CorrectAnswer1_Create Item Page}
-    Input Text    ${txt_MC-CorrectAnswer1_Create Item Page}    ${MC-CorrectAnswer1 content}
+    Select Frame    ${ifr_CorrectAnswer1_Create Item Page}
+    Click Element    ${txt_CorrectAnswer1_Create Item Page}
+    Input Text    ${txt_CorrectAnswer1_Create Item Page}    1
     Unselect Frame
-    Select Frame    ${ifr_MC-CorrectAnswer2_Create Item Page}
-    Clear Element Text    ${txt_MC-CorrectAnswer2_Create Item Page}
-    Input Text    ${txt_MC-CorrectAnswer2_Create Item Page}    ${MC-CorrectAnswer2 content}
+    Sleep    2s
+    Select Frame    ${ifr_CorrectAnswer2_Create Item Page}
+    Click Element    ${txt_CorrectAnswer2_Create Item Page}
+    Input Text    ${txt_CorrectAnswer2_Create Item Page}    2
     Unselect Frame
-    Select Frame    ${ifr_MC-CorrectAnswer3_Create Item Page}
-    Clear Element Text    ${txt_MC-CorrectAnswer3_Create Item Page}
-    Input Text    ${txt_MC-CorrectAnswer3_Create Item Page}    ${MC-CorrectAnswer3 content}
+    Sleep    2s
+    Select Frame    ${ifr_CorrectAnswer3_Create Item Page}
+    Click Element    ${txt_CorrectAnswer3_Create Item Page}
+    Input Text    ${txt_CorrectAnswer3_Create Item Page}    3
     Unselect Frame
-    Select Frame    ${ifr_MC-CorrectAnswer4_Create Item Page}
-    Clear Element Text    ${txt_MC-CorrectAnswer4_Create Item Page}
-    Input Text    ${txt_MC-CorrectAnswer4_Create Item Page}    Two
+    Sleep    2s
+    Select Frame    ${ifr_CorrectAnswer4_Create Item Page}
+    Click Element    ${txt_CorrectAnswer4_Create Item Page}
+    Input Text    ${txt_CorrectAnswer4_Create Item Page}    4
     Unselect Frame
+    Sleep    2s
     Comment    Select correct answer and save changes
+    Unselect Checkbox    ${chx_MC-CorrectAnswer1_Create Item Page}
+    Sleep    2s
     Select Checkbox    ${chx_MC-CorrectAnswer2_Create Item Page}
+    Sleep    2s
     Select Checkbox    ${chx_MC-CorrectAnswer4_Create Item Page}
-    Click Element    ${btn_MC-SaveChanges_Create Item Page}
-    Wait Until Element Is Not Visible    ${pop_EditAnswerChoices_Create Item Page}
-    Wait Until Element Is Enabled    ${btn_SaveandClose Item_Create Item Page}
+    Sleep    2s
+    Click Element    ${btn_PropertiesOK_Create Item Page}
+    Wait Until Element Is Not Visible    ${pop_MC-Properties_Create Item Page}    10s
+    Sleep    3s
     Click Element    ${btn_SaveandClose Item_Create Item Page}
-    Wait Until Element Is Enabled    ${ico_CreateNewItem_Create Item Page}    30s
-    Page Should Contain Element    ${ico_CreateNewItem_Create Item Page}
+    Sleep    10s
     Close Browser
 
-TC05 - Create Multiple Choices Variables Item
+TC04 - Create Multiple Choices Multi-Select Item
+    Navigate To Item Page
+    Sleep    40s
+    Comment    Click to edit Answer Choices
+    Select Frame    ${ifr_QuestionContent_Create Item Page}
+    Press Key    ${ifr_QuestionContentEdit_Create Item Page}    1 + 1 = ?
+    Click Element    ${btn_MC-EditAnswerChoice_Create Item Page}
+    Sleep    3s
+    Unselect Frame
+    Comment    Select Multi-Select option
+    Wait Until Element Is Visible    ${pop_MC-Properties_Create Item Page}    10s
+    Click Element    ${pop_MC-Properties_Create Item Page}
+    Select Radio button    ${MC-RadioButtonGroup}    ${rad_MC-MultiSelectOption_Create Item Page}
+    Comment    Set Max Choices option
+    Wait Until Element Is Enabled    ${cbx_MC-MaxChoices_Create Item Page}
+    Input Text    ${cbx_MC-MaxChoices_Create Item Page}    2
+    Sleep    1s
+    Comment    Enter PointsPossible
+    Input Text    ${cbx_PointsPossible_Create Item Page}    4
+    Sleep    2s
+    Comment    Enter Answer Choices content
+    Select Frame    ${ifr_CorrectAnswer1_Create Item Page}
+    Click Element    ${txt_CorrectAnswer1_Create Item Page}
+    Input Text    ${txt_CorrectAnswer1_Create Item Page}    ${MC-CorrectAnswer1 content}
+    Unselect Frame
+    Sleep    2s
+    Select Frame    ${ifr_CorrectAnswer2_Create Item Page}
+    Click Element    ${txt_CorrectAnswer2_Create Item Page}
+    Input Text    ${txt_CorrectAnswer2_Create Item Page}    ${MC-CorrectAnswer2 content}
+    Unselect Frame
+    Sleep    2s
+    Select Frame    ${ifr_CorrectAnswer3_Create Item Page}
+    Click Element    ${txt_CorrectAnswer3_Create Item Page}
+    Input Text    ${txt_CorrectAnswer3_Create Item Page}    ${MC-CorrectAnswer3 content}
+    Unselect Frame
+    Sleep    2s
+    Select Frame    ${ifr_CorrectAnswer4_Create Item Page}
+    Click Element    ${txt_CorrectAnswer4_Create Item Page}
+    Input Text    ${txt_CorrectAnswer4_Create Item Page}    Two
+    Unselect Frame
+    Sleep    2s
+    Comment    Select correct answer and save changes
+    Unselect Checkbox    ${chx_MC-CorrectAnswer1_Create Item Page}
+    Sleep    2s
+    Select Checkbox    ${chx_MC-CorrectAnswer2_Create Item Page}
+    Sleep    2s
+    Select Checkbox    ${chx_MC-CorrectAnswer4_Create Item Page}
+    Sleep    2s
+    Click Element    ${btn_PropertiesOK_Create Item Page}
+    Wait Until Element Is Not Visible    ${pop_MC-Properties_Create Item Page}    10s
+    Sleep    3s
+    Click Element    ${btn_SaveandClose Item_Create Item Page}
+    Sleep    10s
+    Close Browser
+
+TC05 - Create Multiple Choices Variables Multi-Select Item
     Navigate To Item Page
     Sleep    30s
     Wait Until Element Is Enabled    ${btn_SaveItem_Create Item Page}    10s
     Click Element    ${drp_ItemType_Create Item Page}
     Select From List By Value    ${drp_ItemType_Create Item Page}    ${MC-Variable}
     Sleep    15s
-    Wait Until Element Is Enabled    ${btn_SaveItem_Create Item Page}
-    Select Frame    ${ifr_QuestionContent_Create Item Page}
-    Comment    Input Text    ${ifr_QuestionContentEdit_Create Item Page}    1 + 1 = ?
-    Sleep    3s
     Comment    Click to edit Answer Choices
-    Click Element    //*[@id="RESPONSE_1"]/button
-    Set Selenium Implicit Wait    5s
+    Select Frame    ${ifr_QuestionContent_Create Item Page}
+    Press Key    ${ifr_QuestionContentEdit_Create Item Page}    Which city below in the United State?
+    Click Element    ${btn_MC-EditAnswerChoice_Create Item Page}
+    Sleep    3s
+    Unselect Frame
+    Comment    Select Multi-Select option
+    Wait Until Element Is Visible    ${pop_MCV-Properties_Create Item Page}    10s
+    Click Element    ${pop_MCV-Properties_Create Item Page}
+    Sleep    2s
+    Select Radio Button    ${MC-RadioButtonGroup}    ${rad_MCV-MultiSelectOption_Create Item Page}
+    Sleep    2s
+    Input Text    ${cbx_MC-MaxChoices_Create Item Page}    2
+    Sleep    2s
     Comment    Enter PointsPossible
-    Generate PointsPossible - Create_Item_Page
-    Input Text    ${cbx_MC-PointsPossible_Create Item Page}    ${pointspossible}
+    Input Text    ${cbx_PointsPossible_Create Item Page}    4
+    Sleep    2s
+    Comment    Enter Answer Choices content
+    Select Frame    ${ifr_CorrectAnswer1_Create Item Page}
+    Click Element    ${txt_CorrectAnswer1_Create Item Page}
+    Input Text    ${txt_CorrectAnswer1_Create Item Page}    ShangHai
+    Unselect Frame
+    Sleep    2s
+    Select Frame    ${ifr_CorrectAnswer2_Create Item Page}
+    Click Element    ${txt_CorrectAnswer2_Create Item Page}
+    Input Text    ${txt_CorrectAnswer2_Create Item Page}    Paris
+    Unselect Frame
+    Sleep    2s
+    Select Frame    ${ifr_CorrectAnswer3_Create Item Page}
+    Click Element    ${txt_CorrectAnswer3_Create Item Page}
+    Input Text    ${txt_CorrectAnswer3_Create Item Page}    Rome
+    Unselect Frame
+    Sleep    2s
+    Select Frame    ${ifr_CorrectAnswer4_Create Item Page}
+    Click Element    ${txt_CorrectAnswer4_Create Item Page}
+    Input Text    ${txt_CorrectAnswer4_Create Item Page}    New York
+    Unselect Frame
+    Sleep    2s
+    Comment    Add New Answer Choice
+    Click Element    ${btn_MCV-AddChoice_Create Item Page}
+    Sleep    2s
+    Select Frame    ${ifr_CorrectAnswer5_Create Item Page}
+    Click Element    ${txt_MC-CorrectAnswer5_Create Item Page}
+    Input Text    ${txt_MC-CorrectAnswer5_Create Item Page}    San Jose
+    Unselect Frame
+    Sleep    2s
+    Comment    Enter Point for each answer
+    Input Text    ${cbx_MCV-CorrectAnswer1-Points_Create Item Page}    0
+    Sleep    2s
+    Input Text    ${cbx_MCV-CorrectAnswer2-Points_Create Item Page}    0
+    Sleep    2s
+    Input Text    ${cbx_MCV-CorrectAnswer3-Points_Create Item Page}    0
+    Sleep    2s
+    Input Text    ${cbx_MCV-CorrectAnswer4-Points_Create Item Page}    2
+    Sleep    2s
+    Input Text    ${cbx_MCV-CorrectAnswer5-Points_Create Item Page}    2
+    Sleep    2s
+    Comment    Click OK to save changes
+    Click Element    ${btn_PropertiesOK_Create Item Page}
+    Wait Until Element Is Not Visible    ${pop_MC-Properties_Create Item Page}    10s
+    Sleep    3s
+    Comment    Create Item and close Item page
+    Click Element    ${btn_SaveandClose Item_Create Item Page}
+    Sleep    10s
+    Close Browser
+
+TC06 - Create Inline Choice Item Type
+    Navigate To Item Page
+    Sleep    30s
+    Wait Until Element Is Enabled    ${btn_SaveItem_Create Item Page}    10s
+    Click Element    ${drp_ItemType_Create Item Page}
+    Select From List By Value    ${drp_ItemType_Create Item Page}    ${InlineChoice}
+    Sleep    15s
+    Comment    Enter Question content
+    Select Frame    ${ifr_QuestionContent_Create Item Page}
+    Press Key    ${ifr_QuestionContentEdit_Create Item Page}    Tom ... to school by bicycle.
+    Double Click Element    //*[@id="RESPONSE_1"]
+    Unselect Frame
+    Sleep    3s
+    Wait Until Element Is Visible    ${pop_IC-Properties_Create Item Page}    15s
+    Click Element    ${pop_IC-Properties_Create Item Page}
+    Sleep    2s
+    Comment    Set Points Possible
+    Input Text    ${cbx_PointsPossible_Create Item Page}    2
+    Sleep    2s
+    Comment    Enter Correct Answers content
+    Select Frame    ${ifr_CorrectAnswer1_Create Item Page}
+    Comment    Click Element    ${txt_CorrectAnswer1_Create Item Page}
+    Press Key    ${txt_CorrectAnswer1_Create Item Page}    go
+    Unselect Frame
+    Sleep    2s
+    Select Frame    ${ifr_CorrectAnswer2_Create Item Page}
+    Comment    Click Element    ${txt_CorrectAnswer2_Create Item Page}
+    Press Key    ${txt_CorrectAnswer2_Create Item Page}    goes
+    Unselect Frame
+    Sleep    2s
+    Comment    Add New Answer Choice
+    Click Element    ${btn_IC-AddChoice_Create Item Page}
+    Sleep    2s
+    Select Frame    ${ifr_CorrectAnswer3_Create Item Page}
+    Comment    Click Element    ${txt_CorrectAnswer3_Create Item Page}
+    Press Key    ${txt_CorrectAnswer3_Create Item Page}    going
+    Unselect Frame
+    Sleep    2s
+    Comment    Select Correct Answer
+    Select Radio Button    ${IC-RadioButtonGroup}    ${rad_IC-CorrectAnswer2_Create Item Page}
+    Sleep    2s
+    Click Element    ${btn_PropertiesOK_Create Item Page}
+    Wait Until Element Is Not Visible    ${pop_IC-Properties_Create Item Page}    10s
+    Sleep    3s
+    Click Element    ${btn_SaveandClose Item_Create Item Page}
+    Sleep    10s
+    Close Browser
+    [Teardown]
+
+TC07 - Create Fill-In-The-Blank Item Type
+    Navigate To Item Page
+    Sleep    30s
+    Wait Until Element Is Enabled    ${btn_SaveItem_Create Item Page}    10s
+    Click Element    ${drp_ItemType_Create Item Page}
+    Select From List By Value    ${drp_ItemType_Create Item Page}    ${Fill-In-The-Blank}
+    Sleep    15s
+    Comment    Enter Question content
+    Select Frame    ${ifr_QuestionContent_Create Item Page}
+    Press Key    ${ifr_QuestionContentEdit_Create Item Page}    .... is the capital of the United States
+    Double Click Element    //*[@id="RESPONSE_1"]
+    Unselect Frame
+    Sleep    3s
+    Wait Until Element Is Visible    ${pop_FITB-Properties_Create Item Page}    15s
+    Click Element    ${pop_FITB-Properties_Create Item Page}
+    Sleep    2s
+    Comment    Set Points Possible
+    Input Text    ${cbx_PointsPossible_Create Item Page}    2
+    Sleep    2s
+    Comment    Select Misspelling check box
+    Select Checkbox    ${chx_FITB-MisspellingOption_Create Item Page}
+    Sleep    2s
+    Comment    Set Misspelling Point Deduction
+    Input Text    ${cbx_MisspellingPointsDeduction_Create Item Page}    1
+    Sleep    2s
+    Comment    Set Expected Length
+    Input Text    ${cbx_ExpectedLength_Create Item Page}    10
+    Sleep    2s
+    Comment    Enter Correct Answers content
+    Select Frame    ${ifr_CorrectAnswer1_Create Item Page}
+    Press Key    ${txt_FITB-CorrectAnswer1_Create Item Page}    Washington DC
+    Unselect Frame
+    Sleep    2s
+    Comment    Add New Answer Choice
+    Click Element    ${btn_FITB-AddChoice_Create Item Page}
+    Sleep    2s
+    Select Frame    ${ifr_CorrectAnswer2_Create Item Page}
+    Press Key    ${txt_FITB-CorrectAnswer2_Create Item Page}    Washington D.C
+    Unselect Frame
+    Sleep    2s
+    Click Element    ${btn_PropertiesOK_Create Item Page}
+    Wait Until Element Is Not Visible    ${pop_FITB-Properties_Create Item Page}
+    Sleep    2s
+    Click Element    ${btn_SaveandClose Item_Create Item Page}
+    Sleep    10s
+    Close Browser
+
+TC08 - Create Test With New Bank In Item Set Page
+    Open Browser    http://demo.linkit1.poetadigital.com/QTIItem?qtiItemGroupID=22674&itemSetName=ItemSet-JAGY4297    Chrome
+    Input Text    ${txt_username_Login Page}    ${valid_username}
+    Input Text    ${txt_password_Login Page}    ${valid_password}
+    Click Element    ${btn_submit_Login Page}
+    Wait Until Element Is Enabled    ${ico_SaveAsTest_Item Set Page}    15s
+    Click Element    ${ico_SaveAsTest_Item Set Page}
+    Wait Until Element Is Visible    ${pop_CreateTest_Item Set Page}    15s
+    Select Radio Button    ${TestBankRadioButton}    ${rad_NewBank_Item Set Page}
+    Sleep    2s
+    Click Element    ${drp_NewBank-Grade_Item Set Page}
+    Select From List By Label    ${drp_NewBank-Grade_Item Set Page}    K
+    Sleep    2s
+    Click element    ${drp_NewBank-Subject_Item Set Page}
+    Select From List By Label    ${drp_NewBank-Subject_Item Set Page}    Language Arts
+    Sleep    2s
+    Click Element    ${txt_NewBank-Name_Item Set Page}
+    Generate Test Bank
+    Input Text    ${txt_NewBank-Name_Item Set Page}    AutomationBank
+    Sleep    2s
+    Click Element    ${txt_TestName_Item Set Page}
+    Generate VirtualTest
+    Input Text    ${txt_TestName_Item Set Page}    AutomationTest01
+    Sleep    2s
+    Click Element    ${btn_CreateTest_Item Set Page}
+    Sleep    2s
+    Close Browser
+
+TC09 - Create Test With Existing Bank In Item Set Page
+    Open Browser    http://demo.linkit1.poetadigital.com/QTIItem?qtiItemGroupID=22674&itemSetName=ItemSet-JAGY4297    Chrome
+    Input Text    ${txt_username_Login Page}    ${valid_username}
+    Input Text    ${txt_password_Login Page}    ${valid_password}
+    Click Element    ${btn_submit_Login Page}
+    Wait Until Element Is Enabled    ${ico_SaveAsTest_Item Set Page}    15s
+    Click Element    ${ico_SaveAsTest_Item Set Page}
+    Wait Until Element Is Visible    ${pop_CreateTest_Item Set Page}    15s
+    Select Radio Button    ${TestBankRadioButton}    ${rad_ExistingBank_Item Set Page}
+    Sleep    2s
+    Click Element    ${drp_ExistingBank-Grade_Item Set Page}
+    Select From List By Label    ${drp_ExistingBank-Grade_Item Set Page}    K
+    Sleep    2s
+    Click element    ${drp_ExistingBank-Subject_Item Set Page}
+    Select From List By Label    ${drp_ExistingBank-Subject_Item Set Page}    Language Arts
+    Sleep    2s
+    Click Element    ${drp_ExistingBank-Name_Item Set Page}
+    Select From List By Label    ${drp_ExistingBank-Name_Item Set Page}    AutomationBank
+    Sleep    2s
+    Click Element    ${txt_TestName_Item Set Page}
+    Generate VirtualTest
+    Input Text    ${txt_TestName_Item Set Page}    AutomationTest02
+    Sleep    2s
+    Click Element    ${btn_CreateTest_Item Set Page}
+    Sleep    2s
+    Close Browser
