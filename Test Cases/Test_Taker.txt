@@ -7,55 +7,55 @@ Resource          ../Interfaces/Test_Taker/Test_Taker_Page.txt
 *** Test Cases ***
 TC - Taking Test
     Open Test Taker    146
+    Maximize Browser Window
     Wait Until Element Is Enabled    ${txt_TestCode_Test Taker Page}    300s
     Comment    Enter Test Code
-    Input Text    ${txt_TestCode_Test Taker Page}    00148HTF
+    Input Text    ${txt_TestCode_Test Taker Page}    001GS6Y3
     Wait Until Element Is Enabled    ${btn_SubmitTestCode_Test Taker Page}
     Click Element    ${btn_SubmitTestCode_Test Taker Page}
     Sleep    10s
     Comment    Select Student
-    Wait Until Element Is Visible    //*[@id="studentsList"]    30s
-    Select Student    Student, 0003
+    Wait Until Element Is Visible    ${list_StudentList_Test Taker Page}    30s
+    Select Student    Student, 0001
     Sleep    1s
-    Click Element    //*[@id="selectButton"]
-    Wait Until Element Is Visible    //*[@id="startButton"]    30s
+    Click Element    ${btn_SelectStudent_Test Taker Page}
+    Wait Until Element Is Visible    ${btn_StartOrContinueTest_Test Taker Page}    30s
     Comment    Starting the Test
-    Click Element    //*[@id="startButton"]
-    Wait Until Element Is Visible    //*[@id="testStudentName"]    30s
-    Sleep    2s
+    Click Element    ${btn_StartOrContinueTest_Test Taker Page}
+    Wait Until Element Is Visible    //*[@class="questionNumber" and contains(text(),'1')]    30s
+    Sleep    1s
     Click Element    //*[@id="qtiItemView"]/div/div/assessmentitem/itembody/div/choiceinteraction/simplechoice[2]/div
-    Sleep    2s
+    Sleep    1s
     Click Button    ${btn_NextQuestion_Test Taker Page}
     Wait Until Element Is Visible    //*[@class="questionNumber" and contains(text(),'2')]    180s
-    Sleep    2s
+    Sleep    1s
     Click Element    //*[@id="qtiItemView"]/div/div/assessmentitem/itembody/div/choiceinteraction/simplechoice[2]/div
-    Sleep    2s
+    Sleep    1s
     Click Element    //*[@id="qtiItemView"]/div/div/assessmentitem/itembody/div/choiceinteraction/simplechoice[3]/div
-    Sleep    2s
+    Sleep    1s
     Click Button    ${btn_NextQuestion_Test Taker Page}
     Wait Until Element Is Visible    //*[@class="questionNumber" and contains(text(),'3')]    180s
-    Sleep    2s
+    Sleep    1s
     Click Element    //*[@id="qtiItemView"]/div/div/assessmentitem/itembody/div/choiceinteraction/simplechoice[4]/div
-    Sleep    2s
+    Sleep    1s
     Click Element    //*[@id="qtiItemView"]/div/div/assessmentitem/itembody/div/choiceinteraction/simplechoice[5]/div
-    Sleep    2s
+    Sleep    1s
     Click Button    ${btn_NextQuestion_Test Taker Page}
     Wait Until Element Is Visible    //*[@class="questionNumber" and contains(text(),'4')]    180s
-    Sleep    2s
+    Sleep    1s
     Click Element    ${drp_IC-Interaction_Test Taker Page}
     Sleep    1s
     Click Element    //li[3]/div/span
-    Comment    Select From List By Index    //*[@class="sbOptions"]/li    3
     Sleep    1s
     Click Button    ${btn_NextQuestion_Test Taker Page}
     Wait Until Element Is Visible    //*[@class="questionNumber" and contains(text(),'5')]    180s
-    Sleep    2s
+    Sleep    1s
     Input Text    ${txt_FITB-Interaction_Test Taker Page}    Washington DC
-    Sleep    2s
+    Sleep    1s
     Click Button    ${btn_NextQuestion_Test Taker Page}
     Wait Until Element Is Visible    ${pop_SubmittingTest_Test Taker Page}    60s
     Sleep    1s
     Click Element    ${btn_SubmitTest_Test Taker Page}
     Wait Until Element Is Visible    ${pop_CompletedTest_Test Taker Page}    300s
-    Sleep    2s
+    Sleep    1s
     Close Browser

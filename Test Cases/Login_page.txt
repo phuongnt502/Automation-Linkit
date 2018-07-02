@@ -18,6 +18,8 @@ TC01 - Invalid Username
     ...    Error message "Your username and password do not match our records." shows
     Comment    1. Open Linkit portal
     Open Portal    146
+    Maximize Browser Window
+    Sleep    1s
     Comment    2. Input invalid username
     Input Text    ${txt_username_Login Page}    ${invalid_username}
     Comment    3. Input valid password
@@ -38,9 +40,10 @@ TC06 - Login Successful
     ...
     ...    Expected result:
     ...    Logout link displays
-    ...
     Comment    1. Open Linkit portal
     Open Portal    146
+    Maximize Browser Window
+    Sleep    1s
     Comment    2. Input valid username
     Input Text    ${txt_username_Login Page}    ${valid_username}
     Comment    3. Input valid password
@@ -63,6 +66,8 @@ TC02 - Invalid Password
     ...    Error message "Your username and password do not match our records." shows
     Comment    1. Open Linkit portal
     Open Portal    146
+    Maximize Browser Window
+    Sleep    1s
     Comment    2. Input valid username
     Input Text    ${txt_username_Login Page}    ${valid_username}
     Comment    3. Input invalid password
@@ -85,6 +90,8 @@ TC03 - Invalid Username & Password
     ...    Error message "Your username and password do not match our records." shows
     Comment    1. Open Linkit portal
     Open Portal    146
+    Maximize Browser Window
+    Sleep    1s
     Comment    2. Input invalid username
     Input Text    ${txt_username_Login Page}    ${invalid_username}
     Comment    3. Input invalid password
@@ -107,6 +114,8 @@ TC04 - Empty Username
     ...    Error message "Please enter your user name" shows
     Comment    1. Open Linkit portal
     Open Portal    146
+    Maximize Browser Window
+    Sleep    1s
     Comment    2. Do not input username
     Input Text    ${txt_username_Login Page}    ${empty}
     Comment    3. Input password
@@ -131,6 +140,8 @@ TC05 - Empty Password
     [Template]
     Comment    1. Open Linkit portal
     Open Portal    146
+    Maximize Browser Window
+    Sleep    1s
     Comment    2. Do not input username
     Input Text    ${txt_username_Login Page}    ${valid_username}
     Comment    3. Input password
@@ -154,6 +165,8 @@ TC07 - Logout Successful
     ...    Login page displays
     Comment    1. Open Linkit portal
     Open Portal    146
+    Maximize Browser Window
+    Sleep    1s
     Comment    2. Input valid username
     Input Text    ${txt_username_Login Page}    ${valid_username}
     Comment    3. Input valid password
@@ -162,7 +175,9 @@ TC07 - Logout Successful
     Click Button    ${btn_submit_Login Page}
     Comment    5. Click Logout link
     Wait Until Page Contains Element    ${btn_SignOut_Home Page}    15s
-    Click Element    ${btn_SignOut_Home Page}
+    Sleep    5s
+    Click Link    ${btn_SignOut_Home Page}
+    Sleep    2s
     Comment    6. Verify Login page display
     Page Should Contain    ${lbl_PageLabel_Login Page}
     [Teardown]    Close Browser

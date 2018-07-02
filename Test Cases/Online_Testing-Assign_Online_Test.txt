@@ -23,21 +23,21 @@ TC01 - Assign Online Test To A Class
     Select From List By Label    ${drp_SelectBank_Assign Online Test Page}    AutomationBank
     Sleep    2s
     Click Element    ${drp_SelectTest_Assign Online Test Page}
-    Select From List By Label    ${drp_SelectTest_Assign Online Test Page}    AutomationTest02
+    Select From List By Label    ${drp_SelectTest_Assign Online Test Page}    AutomationTest03
     Sleep    2s
     Click Element    ${drp_SelectSchool_Assign Online Test}
-    Select From List By Label    ${drp_SelectSchool_Assign Online Test}    Bomba School
+    Select From List By Label    ${drp_SelectSchool_Assign Online Test}    AutomationSchool
     Sleep    2s
     Click Element    ${drp_SelectTeacher_Assign Online Test}
-    Select From List By Label    ${drp_SelectTeacher_Assign Online Test}    Bomba, 01 (bomba01)
+    Select From List By Label    ${drp_SelectTeacher_Assign Online Test}    Automation, Teacher 01 (automation_user1)
     Sleep    2s
     Click Element    ${drp_SelectTerm_Assign Online Test}
-    Select From List By Label    ${drp_SelectTerm_Assign Online Test}    Sep 2014 - Sep 2015
+    Select From List By Label    ${drp_SelectTerm_Assign Online Test}    2018
     Sleep    2s
     Click Element    ${drp_SelectClass_Assign Online Test}
-    Select From List By Label    ${drp_SelectClass_Assign Online Test}    Class 1 Bomba
+    Select From List By Label    ${drp_SelectClass_Assign Online Test}    Automation Class
     Sleep    2s
     Click Element    ${btn_AssignTest_Assign Online Test Page}
     Wait Until Element Is Visible    ${btn_Print_Assign Online Test Page}    15s
-    Sleep    2s
-    Close Browser
+    Sleep    5s
+    [Teardown]    Close Browser

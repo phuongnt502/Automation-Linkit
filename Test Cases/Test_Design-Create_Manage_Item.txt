@@ -11,20 +11,22 @@ Resource          ../Interfaces/Test Design/Create Manage Item/Item_Set_Page.txt
 Resource          ../Keywords/Test_Design-Item_Page.txt
 Resource          ../Variables/Item_Set_Page.txt
 Resource          ../Keywords/Test_Design-Item_Set_Page.txt
+Resource          ../Keywords/Common_Keywords.txt
+Resource          ../Keywords/Test_Design-Item_Bank_Page.txt
 
 *** Test Cases ***
 TC01 - Create New Item Bank
     Login As Valid User
     Comment    Navigate to Test Design Area and access Create/Manage Item Banks tab
-    Wait Until Element Is Enabled    ${ico_TestDesign_Top Navigation Menu}
-    Click Element    ${ico_TestDesign_Top Navigation Menu}
+    Navigate To Menu    TEST DESIGN
+    Navigate to Sub-Menu    CREATE/MANAGE ITEM BANKS
     Wait Until Element Is Visible    ${tab_Manage Item Banks}
     Click Element    ${tab_Manage Item Banks}
     Comment    Create New Item Bank with random name starts with 'ItemBank-'
     Wait Until Element Is Enabled    ${btn_AddNewItemBank_Item Bank Page}
     Click Element    ${btn_AddNewItemBank_Item Bank Page}
     Wait Until Element Is Visible    ${pop_ItemBankName_Item Bank Page}
-    Generate PointsPossible - Create_Item_Page
+    Generate Item Bank Name - Item Bank Page
     Input Text    ${txt_ItemBankName_Item Bank Page}    ${itembankname}
     Click Element    ${btn_CreateItemBank_Item Bank Page}
     Wait Until Element Is Not Visible    ${pop_ItemBankName_Item Bank Page}    10s
@@ -33,8 +35,18 @@ TC01 - Create New Item Bank
     Sleep    5s
     Comment    Verify new Item Bank is returned
     Element Should Contain    ${tbl_ListItemBankReturn_Item Bank Page}    ${itembankname}
+    [Teardown]    Close Browser
 
 TC02 - Create Item Set
+    Login As Valid User
+    Comment    Navigate to Test Design Area and access Create/Manage Item Banks tab
+    Navigate To Menu    TEST DESIGN
+    Navigate to Sub-Menu    CREATE/MANAGE ITEM BANKS
+    Wait Until Element Is Visible    ${tab_Manage Item Banks}
+    Click Element    ${tab_Manage Item Banks}
+    Sleep    5s
+    Input Text    ${txt_SearchItemBank_Item Bank Page}    AutomationItemBank-HjjU5760
+    Sleep    5s
     Comment    Click on the new Item Bank has just created
     Click Element    ${tbl_ListItemBankReturn_Item Bank Page}
     Wait Until Element Is Enabled    ${btn_AddNewItemSet_Item Bank Page}
@@ -50,6 +62,7 @@ TC02 - Create Item Set
     Sleep    5s
     Comment    Verify new Item Set is returned
     Element Should Contain    ${tbl_ListItemSetReturn_Item Bank Page}    ${itemsetname}
+    [Teardown]    Close Browser
 
 TC03 - Create Multiple Choices Single Select Item
     Navigate To Item Page
@@ -98,11 +111,11 @@ TC03 - Create Multiple Choices Single Select Item
     Sleep    3s
     Click Element    ${btn_SaveandClose Item_Create Item Page}
     Sleep    10s
-    Close Browser
+    [Teardown]    Close Browser
 
 TC04 - Create Multiple Choices Multi-Select Item
     Navigate To Item Page
-    Sleep    40s
+    Sleep    60s
     Comment    Click to edit Answer Choices
     Select Frame    ${ifr_QuestionContent_Create Item Page}
     Press Key    ${ifr_QuestionContentEdit_Create Item Page}    1 + 1 = ?
@@ -153,7 +166,7 @@ TC04 - Create Multiple Choices Multi-Select Item
     Sleep    3s
     Click Element    ${btn_SaveandClose Item_Create Item Page}
     Sleep    10s
-    Close Browser
+    [Teardown]    Close Browser
 
 TC05 - Create Multiple Choices Variables Multi-Select Item
     Navigate To Item Page
@@ -226,7 +239,7 @@ TC05 - Create Multiple Choices Variables Multi-Select Item
     Comment    Create Item and close Item page
     Click Element    ${btn_SaveandClose Item_Create Item Page}
     Sleep    10s
-    Close Browser
+    [Teardown]    Close Browser
 
 TC06 - Create Inline Choice Item Type
     Navigate To Item Page
@@ -274,8 +287,7 @@ TC06 - Create Inline Choice Item Type
     Sleep    3s
     Click Element    ${btn_SaveandClose Item_Create Item Page}
     Sleep    10s
-    Close Browser
-    [Teardown]
+    [Teardown]    Close Browser
 
 TC07 - Create Fill-In-The-Blank Item Type
     Navigate To Item Page
@@ -322,7 +334,7 @@ TC07 - Create Fill-In-The-Blank Item Type
     Sleep    2s
     Click Element    ${btn_SaveandClose Item_Create Item Page}
     Sleep    10s
-    Close Browser
+    [Teardown]    Close Browser
 
 TC08 - Create Test With New Bank In Item Set Page
     Open Browser    http://demo.linkit1.poetadigital.com/QTIItem?qtiItemGroupID=22674&itemSetName=ItemSet-JAGY4297    Chrome
@@ -350,7 +362,7 @@ TC08 - Create Test With New Bank In Item Set Page
     Sleep    2s
     Click Element    ${btn_CreateTest_Item Set Page}
     Sleep    2s
-    Close Browser
+    [Teardown]    Close Browser
 
 TC09 - Create Test With Existing Bank In Item Set Page
     Open Browser    http://demo.linkit1.poetadigital.com/QTIItem?qtiItemGroupID=22674&itemSetName=ItemSet-JAGY4297    Chrome
@@ -373,8 +385,8 @@ TC09 - Create Test With Existing Bank In Item Set Page
     Sleep    2s
     Click Element    ${txt_TestName_Item Set Page}
     Generate VirtualTest
-    Input Text    ${txt_TestName_Item Set Page}    AutomationTest02
+    Input Text    ${txt_TestName_Item Set Page}    AutomationTest03
     Sleep    2s
     Click Element    ${btn_CreateTest_Item Set Page}
-    Sleep    2s
-    Close Browser
+    Sleep    5s
+    [Teardown]    Close Browser

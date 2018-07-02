@@ -1,3 +1,3 @@
 *** Variables ***
 ${btn_SignOut_Home Page}    //*[@id="status-infos"]/li[3]/a
-${ico_menu_Top Navigation Menu}    //a[contains(text(),'${menutext}')]
+${ico_menu_Top Navigation Menu}    ${EMPTY}

@@ -2,16 +2,37 @@
 Library           Selenium2Library
 Resource          Login_page.txt
 Library           String
+Resource          ../Interfaces/Test Design/Create Manage Item/Item_Bank_Page.txt
+Resource          ../Interfaces/Test Design/Create Manage Item/Item_Set_Page.txt
+Resource          ../Interfaces/Test Design/Create Manage Item/Item_Page.txt
+Resource          Common_Keywords.txt
 
 *** Keywords ***
 Generate Item Bank Name - Item Bank Page
     ${randomtext}=    Generate Random String    4    [LETTERS]
     ${randomnumber}=    Generate Random String    4    [NUMBERS]
-    ${itembankname}=    Set Variable    ItemBank-${randomtext}${randomnumber}
+    ${itembankname}=    Set Variable    AutomationItemBank-${randomtext}${randomnumber}
     Set Global Variable    ${itembankname}
 
 Generate Item Set Name - Item Bank Page
     ${randomtext2}=    Generate Random String    4    [LETTERS]
     ${randomnumber2}=    Generate Random String    4    [NUMBERS]
-    ${itemsetname}=    Set Variable    ItemSet-${randomtext2}${randomnumber2}
+    ${itemsetname}=    Set Variable    AutomationItemSet-${randomtext2}${randomnumber2}
     Set Global Variable    ${itemsetname}
+
+Open Item Set
+    Login As Valid User
+    Comment    Navigate to Test Design Area and access Create/Manage Item Banks tab
+    Navigate To Menu    TEST DESIGN
+    Navigate to Sub-Menu    CREATE/MANAGE ITEM BANKS
+    Wait Until Element Is Visible    ${tab_Manage Item Banks}
+    Click Element    ${tab_Manage Item Banks}
+    Sleep    10s
+    Input Text    ${txt_SearchItemBank_Item Bank Page}    AutomationItemBank-HjjU5760
+    Sleep    5s
+    Comment    Click on the new Item Bank has just created
+    Click Element    ${tbl_ListItemBankReturn_Item Bank Page}
+    Sleep    3s
+    Input Text    ${txt_SearchItemSet_Item Bank Page}    AutomationItemSet-alpx9959
+    Sleep    10s
+    Click Element    ${ico_OpenItemSet_Item Bank Page}

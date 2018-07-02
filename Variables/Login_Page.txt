@@ -6,5 +6,5 @@ ${empty_password}    ${empty}
 ${errormessage_invalidlogin}    Your username and password do not match our records.
 ${errormessage_emptyusername}    Please enter your user name
 ${errormessage_emptypassword}    Please enter your password
-${valid_username}    dcragg    # Username is District Admin role
-${valid_password}    Linkit1*
+${valid_username}    biden502    # Username is District Admin role
+${valid_password}    Abcd1234

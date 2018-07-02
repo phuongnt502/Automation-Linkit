@@ -13,6 +13,7 @@ Open Portal
 
 Login As Valid User
     Open Portal    146
+    Maximize Browser Window
     Input Text    ${txt_username_Login Page}    ${valid_username}
     Input Text    ${txt_password_Login Page}    ${valid_password}
     Click Element    ${btn_submit_Login Page}

@@ -7,6 +7,8 @@ Resource          ../Interfaces/Login/Login.txt
 Resource          ../Interfaces/Test Design/Create Manage Item/Item_Page.txt
 Resource          ../Interfaces/Test Design/Create Manage Item/Item_Set_Page.txt
 Library           Selenium2Library
+Resource          Test_Design-Item_Bank_Page.txt
+Resource          Common_Keywords.txt
 
 *** Keywords ***
 Generate PointsPossible - Create_Item_Page
@@ -14,9 +16,6 @@ Generate PointsPossible - Create_Item_Page
     Set Global Variable    ${pointspossible}
 
 Navigate To Item Page
-    Open Browser    http://demo.linkit1.poetadigital.com/QTIItem?qtiItemGroupID=22674&itemSetName=ItemSet-JAGY4297    Chrome
-    Input Text    ${txt_username_Login Page}    ${valid_username}
-    Input Text    ${txt_password_Login Page}    ${valid_password}
-    Click Element    ${btn_submit_Login Page}
+    Open Item Set
     Wait Until Element Is Enabled    ${ico_CreateNewItem_Create Item Page}    120 seconds
     Click Element    ${ico_CreateNewItem_Create Item Page}
