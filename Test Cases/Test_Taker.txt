@@ -5,7 +5,7 @@ Resource          ../Variables/Test_Taker_Page.txt
 Resource          ../Interfaces/Test_Taker/Test_Taker_Page.txt
 
 *** Test Cases ***
-TC - Taking Test
+TC01 - Taking Test
     Open Test Taker    146
     Maximize Browser Window
     Wait Until Element Is Enabled    ${txt_TestCode_Test Taker Page}    300s
