@@ -315,7 +315,7 @@ TC07 - Create Fill-In-The-Blank Item Type
     Input Text    ${cbx_MisspellingPointsDeduction_Create Item Page}    1
     Sleep    2s
     Comment    Set Expected Length
-    Input Text    ${cbx_ExpectedLength_Create Item Page}    10
+    Input Text    ${cbx_FITB-ExpectedLength_Create Item Page}    10
     Sleep    2s
     Comment    Enter Correct Answers content
     Select Frame    ${ifr_CorrectAnswer1_Create Item Page}
@@ -336,11 +336,59 @@ TC07 - Create Fill-In-The-Blank Item Type
     Sleep    10s
     [Teardown]    Close Browser
 
-TC08 - Create Test With New Bank In Item Set Page
-    Open Browser    http://demo.linkit1.poetadigital.com/QTIItem?qtiItemGroupID=22674&itemSetName=ItemSet-JAGY4297    Chrome
-    Input Text    ${txt_username_Login Page}    ${valid_username}
-    Input Text    ${txt_password_Login Page}    ${valid_password}
-    Click Element    ${btn_submit_Login Page}
+TC08 - Create Extended Text Item Type
+    Navigate To Item Page
+    Sleep    30s
+    Wait Until Element Is Enabled    ${btn_SaveItem_Create Item Page}    10s
+    Click Element    ${drp_ItemType_Create Item Page}
+    Select From List By Value    ${drp_ItemType_Create Item Page}    ${ExtendedText}
+    Sleep    15s
+    Comment    Enter Question content
+    Select Frame    ${ifr_QuestionContent_Create Item Page}
+    Press Key    ${ifr_QuestionContentEdit_Create Item Page}    What were the most important wars fought in the history of the United States?
+    Double Click Element    //*[@id="RESPONSE_1"]
+    Unselect Frame
+    Sleep    3s
+    Wait Until Element Is Visible    ${pop_ExtendedText-Properties_Create Item Page }    15s
+    Click Element    ${pop_ExtendedText-Properties_Create Item Page }
+    Sleep    1s
+    Input Text    ${cbx_PointsPossible_Create Item Page}    5
+    Sleep    1s
+    Click Element    ${btn_PropertiesOK_Create Item Page}
+    Sleep    1s
+    Wait Until Element Is Not Visible    ${btn_PropertiesOK_Create Item Page}
+    Sleep    2s
+    Click Element    ${btn_SaveandClose Item_Create Item Page}
+    Sleep    10s
+    [Teardown]    Close Browser
+
+TC09 - Create Drawing Response Item Type
+    Navigate To Item Page
+    Sleep    30s
+    Wait Until Element Is Enabled    ${btn_SaveItem_Create Item Page}    10s
+    Click Element    ${drp_ItemType_Create Item Page}
+    Select From List By Value    ${drp_ItemType_Create Item Page}    ${DrawingResponse}
+    Sleep    15s
+    Comment    Enter Question content
+    Select Frame    ${ifr_QuestionContent_Create Item Page}
+    Press Key    ${ifr_QuestionContentEdit_Create Item Page}    Drawing the butterfly
+    Double Click Element    //*[@id="RESPONSE_1"]
+    Unselect Frame
+    Sleep    3s
+    Wait Until Element Is Visible    ${pop_DrawingResponse-Properties_Create Item Page}    15s
+    Click Element    ${pop_DrawingResponse-Properties_Create Item Page}
+    Sleep    1s
+    Input Text    ${cbx_PointsPossible_Create Item Page}    5
+    Sleep    1s
+    Click Element    ${btn_PropertiesOK_Create Item Page}
+    Sleep    1s
+    Wait Until Element Is Not Visible    ${btn_PropertiesOK_Create Item Page}
+    Sleep    2s
+    Click Element    ${btn_SaveandClose Item_Create Item Page}
+    Sleep    10s
+
+TC10 - Create Test With New Bank In Item Set Page
+    Open Item Set
     Wait Until Element Is Enabled    ${ico_SaveAsTest_Item Set Page}    15s
     Click Element    ${ico_SaveAsTest_Item Set Page}
     Wait Until Element Is Visible    ${pop_CreateTest_Item Set Page}    15s
@@ -364,11 +412,8 @@ TC08 - Create Test With New Bank In Item Set Page
     Sleep    2s
     [Teardown]    Close Browser
 
-TC09 - Create Test With Existing Bank In Item Set Page
-    Open Browser    http://demo.linkit1.poetadigital.com/QTIItem?qtiItemGroupID=22674&itemSetName=ItemSet-JAGY4297    Chrome
-    Input Text    ${txt_username_Login Page}    ${valid_username}
-    Input Text    ${txt_password_Login Page}    ${valid_password}
-    Click Element    ${btn_submit_Login Page}
+TC11 - Create Test With Existing Bank In Item Set Page
+    Open Item Set
     Wait Until Element Is Enabled    ${ico_SaveAsTest_Item Set Page}    15s
     Click Element    ${ico_SaveAsTest_Item Set Page}
     Wait Until Element Is Visible    ${pop_CreateTest_Item Set Page}    15s
@@ -389,4 +434,47 @@ TC09 - Create Test With Existing Bank In Item Set Page
     Sleep    2s
     Click Element    ${btn_CreateTest_Item Set Page}
     Sleep    5s
+    [Teardown]    Close Browser
+
+TC12 - Create Multi-Part Item Type
+    Comment    Navigate To Item Page
+    Open browser    http://demo.linkit1.poetadigital.com/QTIItem?qtiItemGroupID=22692    Chrome
+    Maximize Browser Window
+    Input Text    ${txt_username_Login Page}    ${valid_username}
+    Input Text    ${txt_password_Login Page}    ${valid_password}
+    Click Element    ${btn_submit_Login Page}
+    Wait Until Element Is Enabled    ${ico_CreateNewItem_Create Item Page}    30s
+    Click Element    ${ico_CreateNewItem_Create Item Page}
+    Sleep    40s
+    Wait Until Element Is Enabled    ${btn_SaveItem_Create Item Page}    10s
+    Click Element    ${drp_ItemType_Create Item Page}
+    Select From List By Value    ${drp_ItemType_Create Item Page}    ${Multi-Part}
+    Sleep    15s
+    Comment    Enter Question content
+    Comment    Select Frame    ${ifr_QuestionContent_Create Item Page}
+    Comment    Press Key    ${ifr_QuestionContentEdit_Create Item Page}    Which of the following below are fishes?
+    Comment    Unselect Frame
+    Comment    Sleep    1s
+    Click Element    //*[@id="cke_11"]/a
+    Select Frame    //iframe[@class="cke_panel_frame"]
+    Click Element    //ul[@class="cke_panel_list"]/li[3]/a
+    Unselect Frame
+    Wait Until Element Is Visible    ${pop_FITB-Properties_Create Item Page}    15s
+    Sleep    3s
+    Click Element    ${pop_FITB-Properties_Create Item Page}
+    Sleep    1s
+    Input Text    ${cbx_PointsPossible_Create Item Page}    2
+    Sleep    1s
+    Input Text    ${cbx_FITB-ExpectedLength_Create Item Page}    10
+    Sleep    1s
+    Select Frame    ${ifr_CorrectAnswer1_Create Item Page}
+    Press Key    ${txt_FITB-CorrectAnswer1_Create Item Page}    Washington D.C
+    Unselect Frame
+    Sleep    1s
+    Click Element    ${btn_PropertiesOK_Create Item Page}
+    Wait Until Element Is Not Visible    ${pop_FITB-Properties_Create Item Page}    15s
+    Sleep    1s
+    Select Frame    ${ifr_QuestionContent_Create Item Page}
+    Comment    Click Element    //body[contains(text(), '')]
+    Input Text    ${ifr_QuestionContent_Create Item Page}    is the capital of the United States of America.
     [Teardown]    Close Browser
