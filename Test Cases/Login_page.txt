@@ -31,30 +31,6 @@ TC01 - Invalid Username
     Element Should Contain    ${msg_ErrorInvalidUserPass_Login Page}    ${errormessage_invalidlogin}
     [Teardown]    Close Browser
 
-TC06 - Login Successful
-    [Documentation]    1. Open Linkit portal
-    ...    2. Input valid username
-    ...    3. Input valid password
-    ...    4. Click Login button
-    ...    5. Verify error message
-    ...
-    ...    Expected result:
-    ...    Logout link displays
-    Comment    1. Open Linkit portal
-    Open Portal    146
-    Maximize Browser Window
-    Sleep    1s
-    Comment    2. Input valid username
-    Input Text    ${txt_username_Login Page}    ${valid_username}
-    Comment    3. Input valid password
-    Input Text    ${txt_password_Login Page}    ${valid_password}
-    Comment    4. Click Login button
-    Click Button    ${btn_submit_Login Page}
-    Comment    5. Verify error message
-    Wait Until Page Contains Element    ${btn_SignOut_Home Page}    15s
-    Page Should Contain Element    ${btn_SignOut_Home Page}
-    [Teardown]    Close Browser
-
 TC02 - Invalid Password
     [Documentation]    1. Open Linkit portal
     ...    2. Input valid username
@@ -151,6 +127,30 @@ TC05 - Empty Password
     Comment    5. Verify error message
     Wait Until Page Contains Element    ${msg_ErrorEmptyPassword_Login Page}    15s
     Element Should Contain    ${msg_ErrorEmptyPassword_Login Page}    ${errormessage_emptypassword}
+    [Teardown]    Close Browser
+
+TC06 - Login Successful
+    [Documentation]    1. Open Linkit portal
+    ...    2. Input valid username
+    ...    3. Input valid password
+    ...    4. Click Login button
+    ...    5. Verify error message
+    ...
+    ...    Expected result:
+    ...    Logout link displays
+    Comment    1. Open Linkit portal
+    Open Portal    146
+    Maximize Browser Window
+    Sleep    1s
+    Comment    2. Input valid username
+    Input Text    ${txt_username_Login Page}    ${valid_username}
+    Comment    3. Input valid password
+    Input Text    ${txt_password_Login Page}    ${valid_password}
+    Comment    4. Click Login button
+    Click Button    ${btn_submit_Login Page}
+    Comment    5. Verify error message
+    Wait Until Page Contains Element    ${btn_SignOut_Home Page}    15s
+    Page Should Contain Element    ${btn_SignOut_Home Page}
     [Teardown]    Close Browser
 
 TC07 - Logout Successful
