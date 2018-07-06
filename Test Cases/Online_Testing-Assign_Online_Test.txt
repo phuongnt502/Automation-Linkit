@@ -8,11 +8,14 @@ Resource          ../Keywords/Common_Keywords.txt
 
 *** Test Cases ***
 TC01 - Assign Online Test To A Class
+    Comment    Open portal and logged in
     Login As Valid User
+    Comment    Navigate to Assign Online Test page
     Navigate To Menu    ONLINE TESTING
     Navigate to Sub-Menu    ASSIGN ONLINE TESTS
     Wait Until Page Contains Element    ${btn_AssignTest_Assign Online Test Page}    10s
     Sleep    15s
+    Comment    Select Grade/Subject/Bank/Test
     Click Element    ${drp_SelectGrade_Assign Online Test Page}
     Select From List By Label    ${drp_SelectGrade_Assign Online Test Page}    K
     Sleep    2s
@@ -25,6 +28,7 @@ TC01 - Assign Online Test To A Class
     Click Element    ${drp_SelectTest_Assign Online Test Page}
     Select From List By Label    ${drp_SelectTest_Assign Online Test Page}    AutomationTest03
     Sleep    2s
+    Comment    Select School/Teacher/Term/Class
     Click Element    ${drp_SelectSchool_Assign Online Test}
     Select From List By Label    ${drp_SelectSchool_Assign Online Test}    AutomationSchool
     Sleep    2s
@@ -37,7 +41,11 @@ TC01 - Assign Online Test To A Class
     Click Element    ${drp_SelectClass_Assign Online Test}
     Select From List By Label    ${drp_SelectClass_Assign Online Test}    Automation Class
     Sleep    2s
+    Comment    Click Assign button
     Click Element    ${btn_AssignTest_Assign Online Test Page}
+    Wait Until Element Is Visible    //*[@id="confirmSubmitDialog"]    15s
+    Click Element    //*[@id="confirmSubmitDialog"]
+    Click Element    //div[@class="block-content form"]/div[2]/button[contains(text(), 'Yes')]
     Wait Until Element Is Visible    ${btn_Print_Assign Online Test Page}    15s
     Sleep    5s
     [Teardown]    Close Browser

@@ -20,8 +20,7 @@ TC01 - Create New Item Bank
     Comment    Navigate to Test Design Area and access Create/Manage Item Banks tab
     Navigate To Menu    TEST DESIGN
     Navigate to Sub-Menu    CREATE/MANAGE ITEM BANKS
-    Wait Until Element Is Visible    ${tab_Manage Item Banks}
-    Click Element    ${tab_Manage Item Banks}
+    Sleep    5s
     Comment    Create New Item Bank with random name starts with 'ItemBank-'
     Wait Until Element Is Enabled    ${btn_AddNewItemBank_Item Bank Page}
     Click Element    ${btn_AddNewItemBank_Item Bank Page}
@@ -42,8 +41,6 @@ TC02 - Create Item Set
     Comment    Navigate to Test Design Area and access Create/Manage Item Banks tab
     Navigate To Menu    TEST DESIGN
     Navigate to Sub-Menu    CREATE/MANAGE ITEM BANKS
-    Wait Until Element Is Visible    ${tab_Manage Item Banks}
-    Click Element    ${tab_Manage Item Banks}
     Sleep    5s
     Input Text    ${txt_SearchItemBank_Item Bank Page}    AutomationItemBank-HjjU5760
     Sleep    5s

@@ -6,6 +6,7 @@ Resource          ../Interfaces/Test_Taker/Test_Taker_Page.txt
 
 *** Test Cases ***
 TC01 - Taking Test
+    Comment    Open Test Taker page
     Open Test Taker    146
     Maximize Browser Window
     Wait Until Element Is Enabled    ${txt_TestCode_Test Taker Page}    300s
@@ -53,6 +54,7 @@ TC01 - Taking Test
     Input Text    ${txt_FITB-Interaction_Test Taker Page}    Washington DC
     Sleep    1s
     Click Button    ${btn_NextQuestion_Test Taker Page}
+    Comment    Submit test
     Wait Until Element Is Visible    ${pop_SubmittingTest_Test Taker Page}    60s
     Sleep    1s
     Click Element    ${btn_SubmitTest_Test Taker Page}
