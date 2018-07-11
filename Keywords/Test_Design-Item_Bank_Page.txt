@@ -33,6 +33,6 @@ Open Item Set
     Comment    Click on the new Item Bank has just created
     Click Element    ${tbl_ListItemBankReturn_Item Bank Page}
     Sleep    3s
-    Input Text    ${txt_SearchItemSet_Item Bank Page}    AutomationItemSet-alpx9959
+    Input Text    ${txt_SearchItemSet_Item Bank Page}    AutomationItemSet-bvOS0716
     Sleep    10s
     Click Element    ${ico_OpenItemSet_Item Bank Page}

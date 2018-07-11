@@ -101,13 +101,18 @@ TC03 - Create Multiple Choices Single Select Item
     Sleep    2s
     Select Checkbox    ${chx_MC-CorrectAnswer2_Create Item Page}
     Sleep    2s
-    Select Checkbox    ${chx_MC-CorrectAnswer4_Create Item Page}
-    Sleep    2s
     Click Element    ${btn_PropertiesOK_Create Item Page}
     Wait Until Element Is Not Visible    ${pop_MC-Properties_Create Item Page}    10s
     Sleep    3s
     Click Element    ${btn_SaveandClose Item_Create Item Page}
-    Sleep    10s
+    Wait Until Element Is Visible    ${tbl_QuestionOrderNumber1_Item Set Page}    10s
+    Sleep    3s
+    Select Checkbox    ${cbx_ItemCheckBox1_Item Set Page}
+    Wait Until Element Is Enabled    ${btn_DeleteItem_Item Set Page}    10s
+    Sleep    1s
+    Click Button    ${btn_DeleteItem_Item Set Page}
+    Alert Should Be Present    Do you really want to delete the selected item(s)? This deletion is permanent and cannot be undone. Are you sure to continue?
+    Wait Until Element Is Not Visible    ${tbl_QuestionOrderNumber1_Item Set Page}    10s
     [Teardown]    Close Browser
 
 TC04 - Create Multiple Choices Multi-Select Item
@@ -133,17 +138,17 @@ TC04 - Create Multiple Choices Multi-Select Item
     Comment    Enter Answer Choices content
     Select Frame    ${ifr_CorrectAnswer1_Create Item Page}
     Click Element    ${txt_CorrectAnswer1_Create Item Page}
-    Input Text    ${txt_CorrectAnswer1_Create Item Page}    ${MC-CorrectAnswer1 content}
+    Input Text    ${txt_CorrectAnswer1_Create Item Page}    1
     Unselect Frame
     Sleep    2s
     Select Frame    ${ifr_CorrectAnswer2_Create Item Page}
     Click Element    ${txt_CorrectAnswer2_Create Item Page}
-    Input Text    ${txt_CorrectAnswer2_Create Item Page}    ${MC-CorrectAnswer2 content}
+    Input Text    ${txt_CorrectAnswer2_Create Item Page}    2
     Unselect Frame
     Sleep    2s
     Select Frame    ${ifr_CorrectAnswer3_Create Item Page}
     Click Element    ${txt_CorrectAnswer3_Create Item Page}
-    Input Text    ${txt_CorrectAnswer3_Create Item Page}    ${MC-CorrectAnswer3 content}
+    Input Text    ${txt_CorrectAnswer3_Create Item Page}    3
     Unselect Frame
     Sleep    2s
     Select Frame    ${ifr_CorrectAnswer4_Create Item Page}
@@ -162,7 +167,14 @@ TC04 - Create Multiple Choices Multi-Select Item
     Wait Until Element Is Not Visible    ${pop_MC-Properties_Create Item Page}    10s
     Sleep    3s
     Click Element    ${btn_SaveandClose Item_Create Item Page}
-    Sleep    10s
+    Wait Until Element Is Visible    ${tbl_QuestionOrderNumber1_Item Set Page}    10s
+    Sleep    3s
+    Select Checkbox    ${cbx_ItemCheckBox1_Item Set Page}
+    Wait Until Element Is Enabled    ${btn_DeleteItem_Item Set Page}    10s
+    Sleep    1s
+    Click Button    ${btn_DeleteItem_Item Set Page}
+    Alert Should Be Present    Do you really want to delete the selected item(s)? This deletion is permanent and cannot be undone. Are you sure to continue?
+    Wait Until Element Is Not Visible    ${tbl_QuestionOrderNumber1_Item Set Page}    10s
     [Teardown]    Close Browser
 
 TC05 - Create Multiple Choices Variables Multi-Select Item
@@ -235,7 +247,14 @@ TC05 - Create Multiple Choices Variables Multi-Select Item
     Sleep    3s
     Comment    Create Item and close Item page
     Click Element    ${btn_SaveandClose Item_Create Item Page}
-    Sleep    10s
+    Wait Until Element Is Visible    ${tbl_QuestionOrderNumber1_Item Set Page}    10s
+    Sleep    3s
+    Select Checkbox    ${cbx_ItemCheckBox1_Item Set Page}
+    Wait Until Element Is Enabled    ${btn_DeleteItem_Item Set Page}    10s
+    Sleep    1s
+    Click Button    ${btn_DeleteItem_Item Set Page}
+    Alert Should Be Present    Do you really want to delete the selected item(s)? This deletion is permanent and cannot be undone. Are you sure to continue?
+    Wait Until Element Is Not Visible    ${tbl_QuestionOrderNumber1_Item Set Page}    10s
     [Teardown]    Close Browser
 
 TC06 - Create Inline Choice Item Type
@@ -283,7 +302,14 @@ TC06 - Create Inline Choice Item Type
     Wait Until Element Is Not Visible    ${pop_IC-Properties_Create Item Page}    10s
     Sleep    3s
     Click Element    ${btn_SaveandClose Item_Create Item Page}
-    Sleep    10s
+    Wait Until Element Is Visible    ${tbl_QuestionOrderNumber1_Item Set Page}    10s
+    Sleep    3s
+    Select Checkbox    ${cbx_ItemCheckBox1_Item Set Page}
+    Wait Until Element Is Enabled    ${btn_DeleteItem_Item Set Page}    10s
+    Sleep    1s
+    Click Button    ${btn_DeleteItem_Item Set Page}
+    Alert Should Be Present    Do you really want to delete the selected item(s)? This deletion is permanent and cannot be undone. Are you sure to continue?
+    Wait Until Element Is Not Visible    ${tbl_QuestionOrderNumber1_Item Set Page}    10s
     [Teardown]    Close Browser
 
 TC07 - Create Fill-In-The-Blank Item Type
@@ -330,7 +356,14 @@ TC07 - Create Fill-In-The-Blank Item Type
     Wait Until Element Is Not Visible    ${pop_FITB-Properties_Create Item Page}
     Sleep    2s
     Click Element    ${btn_SaveandClose Item_Create Item Page}
-    Sleep    10s
+    Wait Until Element Is Visible    ${tbl_QuestionOrderNumber1_Item Set Page}    10s
+    Sleep    3s
+    Select Checkbox    ${cbx_ItemCheckBox1_Item Set Page}
+    Wait Until Element Is Enabled    ${btn_DeleteItem_Item Set Page}    10s
+    Sleep    1s
+    Click Button    ${btn_DeleteItem_Item Set Page}
+    Alert Should Be Present    Do you really want to delete the selected item(s)? This deletion is permanent and cannot be undone. Are you sure to continue?
+    Wait Until Element Is Not Visible    ${tbl_QuestionOrderNumber1_Item Set Page}    10s
     [Teardown]    Close Browser
 
 TC08 - Create Extended Text Item Type
@@ -356,7 +389,14 @@ TC08 - Create Extended Text Item Type
     Wait Until Element Is Not Visible    ${btn_PropertiesOK_Create Item Page}
     Sleep    2s
     Click Element    ${btn_SaveandClose Item_Create Item Page}
-    Sleep    10s
+    Wait Until Element Is Visible    ${tbl_QuestionOrderNumber1_Item Set Page}    10s
+    Sleep    3s
+    Select Checkbox    ${cbx_ItemCheckBox1_Item Set Page}
+    Wait Until Element Is Enabled    ${btn_DeleteItem_Item Set Page}    10s
+    Sleep    1s
+    Click Button    ${btn_DeleteItem_Item Set Page}
+    Alert Should Be Present    Do you really want to delete the selected item(s)? This deletion is permanent and cannot be undone. Are you sure to continue?
+    Wait Until Element Is Not Visible    ${tbl_QuestionOrderNumber1_Item Set Page}    10s
     [Teardown]    Close Browser
 
 TC09 - Create Drawing Response Item Type
@@ -382,7 +422,14 @@ TC09 - Create Drawing Response Item Type
     Wait Until Element Is Not Visible    ${btn_PropertiesOK_Create Item Page}
     Sleep    2s
     Click Element    ${btn_SaveandClose Item_Create Item Page}
-    Sleep    10s
+    Wait Until Element Is Visible    ${tbl_QuestionOrderNumber1_Item Set Page}    10s
+    Sleep    3s
+    Select Checkbox    ${cbx_ItemCheckBox1_Item Set Page}
+    Wait Until Element Is Enabled    ${btn_DeleteItem_Item Set Page}    10s
+    Sleep    1s
+    Click Button    ${btn_DeleteItem_Item Set Page}
+    Alert Should Be Present    Do you really want to delete the selected item(s)? This deletion is permanent and cannot be undone. Are you sure to continue?
+    Wait Until Element Is Not Visible    ${tbl_QuestionOrderNumber1_Item Set Page}    10s
 
 TC10 - Create Test With New Bank In Item Set Page
     Open Item Set

@@ -13,3 +13,6 @@ ${txt_NewBank-Name_Item Set Page}    //fieldset[1]/div[2]/div/p[5]/input
 ${txt_TestName_Item Set Page}    //fieldset[2]/div/div/p/input
 ${drp_ExistingBank-Name_Item Set Page}    //fieldset[1]/div[2]/div/p[5]/select
 ${btn_CreateTest_Item Set Page}    //*[@id="popup_content"]/div[1]/div/button
+${btn_DeleteItem_Item Set Page}    //*[@id="btnDeleteQtiItem"]
+${tbl_QuestionOrderNumber1_Item Set Page}    //*[@id="qtiItemDataTable"]/tbody/tr/td[2][contains(text(), '1')]
+${cbx_ItemCheckBox1_Item Set Page}    //*[@id="qtiItemDataTable_wrapper"]/table/tbody/tr[1]/td[1]/input
