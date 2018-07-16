@@ -12,3 +12,4 @@ ${Multi-Part}     21
 ${Drag-and-Drop}    30
 ${MC-RadioButtonGroup}    selectionmutiple
 ${IC-RadioButtonGroup}    inlineChoice
+${TextHotSpot}    31

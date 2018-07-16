@@ -53,3 +53,10 @@ ${cbx_ExtendedText-ExpectedLength_Create Item Page}    //*[@id="expertLength"]
 ${cbx_ExtendedText-Height_Create Item Page}    //*[@id="extendedtext-height"]
 ${btn_MP-AddNewSubPart_Create Item Page}    //*[@class="cke_combo_label" and contains(text(), 'Add New Sub-Part')]
 ${pop_DrawingResponse-Properties_Create Item Page}    //div[contains(text(), 'Drawing Interaction Properties')]
+${pop_THS-Properties_Create Item Page}    //div[contains(text(),"Text Hot Spot Properties")]
+${cbx_THS-FullPointsCredit_Create Item Page}    //*[@id="txtTextHotSpotFullCredit"]
+${cbx_THS-MaximumHSSelect_Create Item Page}    //*[@id="txtTextHotSpotMaxSelected"]
+${cbx_THS-CorrectHS1_Create Item Page}    //*[@id="listTextHotSpot"]/li[1]/div/div[3]/input
+${cbx_THS-CorrectHS2_Create Item Page}    //*[@id="listTextHotSpot"]/li[2]/div/div[3]/input
+${cbx_THS-CorrectHS3_Create Item Page}    //*[@id="listTextHotSpot"]/li[3]/div/div[3]/input
+${cbx_THS-CorrectHS4_Create Item Page}    //*[@id="listTextHotSpot"]/li[4]/div/div[3]/input
