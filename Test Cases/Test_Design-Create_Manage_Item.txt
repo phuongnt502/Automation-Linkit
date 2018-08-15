@@ -157,9 +157,9 @@ TC04 - Create Multiple Choices Multi-Select Item
     Unselect Frame
     Sleep    2s
     Comment    Select correct answer and save changes
-    Unselect Checkbox    ${chx_MC-CorrectAnswer1_Create Item Page}
-    Sleep    2s
     Select Checkbox    ${chx_MC-CorrectAnswer2_Create Item Page}
+    Sleep    2s
+    Unselect Checkbox    ${chx_MC-CorrectAnswer1_Create Item Page}
     Sleep    2s
     Select Checkbox    ${chx_MC-CorrectAnswer4_Create Item Page}
     Sleep    2s
