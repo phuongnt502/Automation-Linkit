@@ -1,0 +1,18 @@
+*** Variables ***
+${rad_Test_TestResultsRemover}    rdTestf
+${rad_Teacher_TestResultsRemover}    rdTeacherf
+${rad_Class_TestResultsRemover}    rdClassf
+${rad_Student_TestResultsRemover}    rdStudentf
+${rad_GroupName_TestResultsRemover}    TestFilter
+${drp_ItemList_TestResultsRemover}    //*[@id="drTestTeacherClassStudentSelect"]
+${drp_ItemListOpt1_TestResultsRemover}    //*[@id="drTestTeacherClassStudentSelect"]/option[1]
+${drp_School_TestResultsRemover}    //*[@id="ftSchoolSelect"]
+${drp_Class_TestResultsRemover}    //*[@id="ftClassSelect2"]
+${drp_Teacher_TestResultsRemover}    //*[@id="ftTeacherSelect"]
+${drp_Student_TestResultsRemover}    //*[@id="ftStudentSelect"]
+${btn_PreviewResults_TestResultsRemover}    //*[@id="btnPreview"]
+${btn_ConfirmRemove_TestResultsRemover}    //*[@id="btnSubmitSelected"]
+${cbx_SelectAll_TestResultsRemover}    //*[@id="chkAllTestResult"]
+${tbl_ResultTable_TestResultsRemover}    //*[@id="dataTable"]/tbody/tr[1]/td[contains(text(), 'AutomationTest02 (Language Arts, Gr. K)')]
+${pop_ConfirmDialog_TestResultsRemover}    //*[@id="messageDialog"]
+${btn_ConfirmDialog-OK_TestResultsRemover}    //*[@id="btnOk"]

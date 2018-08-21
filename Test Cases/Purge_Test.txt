@@ -1,0 +1,58 @@
+*** Settings ***
+Library           Selenium2Library
+Resource          ../Interfaces/Login/Login.txt
+Resource          ../Interfaces/Top Menu/Top_Navigation_Menu.txt
+Resource          ../Interfaces/Test Design/Create Manage Item/Item_Bank_Page.txt
+Resource          ../Interfaces/Test Design/Create Manage Item/Item_Page.txt
+Resource          ../Interfaces/Test Design/Create Manage Item/Item_Set_Page.txt
+Resource          ../Keywords/Common_Keywords.txt
+Resource          ../Keywords/Login_page.txt
+Resource          ../Keywords/Test_Design-Item_Bank_Page.txt
+Resource          ../Keywords/Test_Design-Item_Page.txt
+Resource          ../Keywords/Test_Design-Item_Set_Page.txt
+Resource          ../Keywords/Test_Taker_Page.txt
+Resource          ../Variables/Assign_Online_Test_Page.txt
+Resource          ../Variables/Create_Item_Page_Variables.txt
+Resource          ../Variables/Global_Variables.txt
+Resource          ../Variables/Item_Set_Page.txt
+Resource          ../Variables/Login_Page.txt
+Resource          ../Variables/Test_Taker_Page.txt
+Resource          ../Interfaces/Test_Utilities/Test_Results_Remover/Test_Result_Remover.txt
+
+*** Test Cases ***
+TC01 - Test Result Remover
+    Comment    Open portal and logged in
+    Login As Valid User
+    Comment    Navigate to Assign Online Test page
+    Navigate To Menu    TEST UTILITIES
+    Navigate to Sub-Menu    TEST RESULTS REMOVER
+    Wait Until Element Is Visible    //*[@id="divParentFilter"]
+    Comment    Select Test radio button
+    Select Radio Button    ${rad_GroupName_TestResultsRemover}    ${rad_Test_TestResultsRemover}
+    Wait Until Element Is Visible    ${drp_ItemListOpt1_TestResultsRemover}
+    Comment    Select Virtual Test
+    Select From List By Label    ${drp_ItemList_TestResultsRemover}    AutomationTest02 (Language Arts,Gr. K)
+    Wait Until Element Is Visible    ${btn_PreviewResults_TestResultsRemover}
+    Comment    Select School
+    Select From List By Label    ${drp_School_TestResultsRemover}    Bomba School
+    Comment    Select Class
+    Select From List By Label    ${drp_Class_TestResultsRemover}    Class 1 Bomba (Sep 2014 - Sep 2015)
+    Wait Until Element Is Enabled    ${btn_PreviewResults_TestResultsRemover}
+    Sleep    3s
+    Click Element    ${btn_PreviewResults_TestResultsRemover}
+    Wait Until Page Contains Element    ${tbl_ResultTable_TestResultsRemover}
+    Sleep    2s
+    Select Checkbox    ${cbx_SelectAll_TestResultsRemover}
+    Wait Until Element Is Enabled    ${btn_ConfirmRemove_TestResultsRemover}
+    Click Element    ${btn_ConfirmRemove_TestResultsRemover}
+    Wait Until Element Is Visible    ${pop_ConfirmDialog_TestResultsRemover}
+    Comment    Element Text Should Be    //*[@id="messageDialog"]    You are about to permanently delete student test results. \ This action cannot be undone (i.e., online and bubble sheet student responses will be permanently removed; only bubble sheets can be rescanned).If you need assistance determining whether to remove test results, please contact us at technology@linkit.com .Are you sure you want to remove
+    Click Element    ${btn_ConfirmDialog-OK_TestResultsRemover}
+    Wait Until Page Does Not Contain Element    ${tbl_ResultTable_TestResultsRemover}
+
+TC02 - Purge Test
+    Comment    Open portal and logged in
+    Login As Valid User
+    Comment    Navigate to Assign Online Test page
+    Navigate To Menu    TEST UTILITIES
+    Navigate to Sub-Menu    PURGE TEST

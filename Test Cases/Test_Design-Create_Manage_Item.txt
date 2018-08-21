@@ -34,6 +34,12 @@ TC01 - Create New Item Bank
     Sleep    5s
     Comment    Verify new Item Bank is returned
     Element Should Contain    ${tbl_ListItemBankReturn_Item Bank Page}    ${itembankname}
+    Sleep    3s
+    Click Element    //*[@id="dataTableItemBank"]/tbody/tr/td[1]/div/a[2]
+    Wait Until Element Is Visible    //*[@id="divConfirmDeleteItemBank"]    10s
+    Click Element    //*[@id="btnconfirmDeleteItemBank"]
+    Element Should Not Contain    ${txt_SearchItemBank_Item Bank Page}    ${itembankname}
+    Sleep    2s
     [Teardown]    Close Browser
 
 TC02 - Create Item Set
@@ -59,6 +65,11 @@ TC02 - Create Item Set
     Sleep    5s
     Comment    Verify new Item Set is returned
     Element Should Contain    ${tbl_ListItemSetReturn_Item Bank Page}    ${itemsetname}
+    Click Element    //*[@id="dataTableSet"]/tbody/tr/td[1]/div/a[2]
+    Wait Until Element Is Visible    //*[@id="divConfirmDeleteItemSet"]
+    Click Element    //*[@id="btnconfirmDeleteItemSet"]
+    Element Should Contain    ${tbl_ListItemSetReturn_Item Bank Page}    ${empty}
+    Sleep    2s
     [Teardown]    Close Browser
 
 TC03 - Create Multiple Choices Single Select Item

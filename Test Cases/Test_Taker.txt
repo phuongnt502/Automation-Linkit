@@ -17,7 +17,7 @@ TC01 - Taking Test
     Sleep    10s
     Comment    Select Student
     Wait Until Element Is Visible    ${list_StudentList_Test Taker Page}    30s
-    Select Student    Student, 0001
+    Select Student    Student, 0005
     Sleep    1s
     Click Element    ${btn_SelectStudent_Test Taker Page}
     Wait Until Element Is Visible    ${btn_StartOrContinueTest_Test Taker Page}    30s
