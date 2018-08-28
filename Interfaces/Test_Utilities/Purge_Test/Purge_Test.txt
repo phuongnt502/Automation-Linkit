@@ -1,0 +1,7 @@
+*** Variables ***
+${drp_SelectTeacher_PurgeTest}    //*[@id="userSelect"]
+${drp_SelectTest_PurgeTest}    //*[@id="virtualTestSelect"]
+${btn_Submit_PurgeTest}    //*[@id="divTestResult"]/div/a
+${pop_Dialog-ConfirmPurgeTest_PurgeTest}    //*[@id="ConfirmPurgeTestDialog"]
+${btn_OK-ConfirmPurgeTest_PurgeTest}    //*[@id="btnOk"]
+${msg_SuccessfulMsg_PurgeTest}    //*[@id="success-message"]/li[contains(text(), 'Test Purged')]

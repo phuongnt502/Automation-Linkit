@@ -18,6 +18,7 @@ Resource          ../Variables/Item_Set_Page.txt
 Resource          ../Variables/Login_Page.txt
 Resource          ../Variables/Test_Taker_Page.txt
 Resource          ../Interfaces/Test_Utilities/Test_Results_Remover/Test_Result_Remover.txt
+Resource          ../Interfaces/Test_Utilities/Purge_Test/Purge_Test.txt
 
 *** Test Cases ***
 TC01 - Test Result Remover
@@ -56,3 +57,13 @@ TC02 - Purge Test
     Comment    Navigate to Assign Online Test page
     Navigate To Menu    TEST UTILITIES
     Navigate to Sub-Menu    PURGE TEST
+    Wait Until Element Contains    ${drp_SelectTeacher_PurgeTest}    Select Teacher
+    Sleep    3s
+    Select From List By Label    ${drp_SelectTeacher_PurgeTest}    Nguyen, Phuong ((biden502) - Administrator)
+    Sleep    3s
+    Select From List By Label    ${drp_SelectTest_PurgeTest}    AutomationTest01
+    Sleep    1s
+    Click Element    ${btn_Submit_PurgeTest}
+    Wait Until Element Contains    ${pop_Dialog-ConfirmPurgeTest_PurgeTest}    Are you sure you want to purge the test?
+    Click Element    ${btn_OK-ConfirmPurgeTest_PurgeTest}
+    Wait Until Element Is Visible    ${msg_SuccessfulMsg_PurgeTest}
